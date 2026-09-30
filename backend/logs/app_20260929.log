@@ -1,0 +1,1086 @@
+2026-09-29 20:39:19,049 - main - INFO - === Logging system initialized ===
+2026-09-29 20:39:19,049 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:39:19,049 - main - INFO - Log level: DEBUG
+2026-09-29 20:39:19,049 - main - INFO - Log date: 20260929
+2026-09-29 20:39:19,333 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:39:20,232 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:39:20,327 - main - INFO - Included router: routers.health.router
+2026-09-29 20:39:20,435 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:39:20,635 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:39:20,844 - main - INFO - Included router: routers.user.router
+2026-09-29 20:39:20,845 - main - INFO - === Application startup initiated ===
+2026-09-29 20:39:20,845 - main - INFO - === Application startup completed successfully ===
+2026-09-29 20:39:30,497 - core.config - DEBUG - Read dynamic attribute database_url from environment variable DATABASE_URL
+2026-09-29 20:39:30,498 - core.database - INFO - Using QueuePool for non-Lambda environment (pool_pre_ping=True, pool_size=5, max_overflow=5, pool_recycle=280s, pool_timeout=30s, pool_use_lifo=True)
+2026-09-29 20:39:30,617 - core.database - INFO - Database connection initialized successfully
+2026-09-29 20:39:30,834 - routers.auth - INFO - [token/exchange] Received platform token exchange request
+2026-09-29 20:39:30,834 - core.config - DEBUG - Read dynamic attribute oidc_issuer_url from environment variable OIDC_ISSUER_URL
+2026-09-29 20:39:30,834 - routers.auth - DEBUG - [token/exchange] Verifying token with issuer: https://auth.atoms.dev/api/v1/oidc/platform/tokens/verify
+2026-09-29 20:39:31,024 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-09-29 20:39:31,052 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f8c350ce0e0>
+2026-09-29 20:39:31,052 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8c340c16c0> server_hostname='auth.atoms.dev' timeout=5.0
+2026-09-29 20:39:31,065 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f8c357c5420>
+2026-09-29 20:39:31,066 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-09-29 20:39:31,066 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-09-29 20:39:31,066 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-09-29 20:39:31,067 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-09-29 20:39:31,068 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-09-29 20:39:31,108 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 30 Sep 2026 03:39:31 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'CF-Ray', b'a430336f2b692bbd-LAX'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'x-mgx-request-id', b'acd188539b01885d6779ecce0e5e2263'), (b'x-request-id', b'acd188539b01885d6779ecce0e5e2263'), (b'x-response-time', b'0.001s'), (b'Content-Encoding', b'gzip')])
+2026-09-29 20:39:31,110 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/platform/tokens/verify "HTTP/1.1 200 OK"
+2026-09-29 20:39:31,110 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-09-29 20:39:31,110 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-09-29 20:39:31,110 - httpcore.http11 - DEBUG - response_closed.started
+2026-09-29 20:39:31,111 - httpcore.http11 - DEBUG - response_closed.complete
+2026-09-29 20:39:31,112 - httpcore.connection - DEBUG - close.started
+2026-09-29 20:39:31,112 - httpcore.connection - DEBUG - close.complete
+2026-09-29 20:39:31,112 - routers.auth - DEBUG - [token/exchange] Issuer response status: 200
+2026-09-29 20:39:31,112 - routers.auth - DEBUG - [token/exchange] Issuer response body: {'success': True, 'data': {'email': '19841113382@163.com', 'exp': 1793324019, 'iat': 1790732019, 'pv': 0, 'user_id': 1615995}, 'message': 'Platform token verified', 'code': 0, 'timestamp': '2026-09-30T11:39:31.102401'}
+2026-09-29 20:39:31,112 - routers.auth - INFO - [token/exchange] Token verified, platform_user_id=1615995, email=19841113382@163.com
+2026-09-29 20:39:31,112 - core.config - DEBUG - Read dynamic attribute admin_user_id from environment variable ADMIN_USER_ID
+2026-09-29 20:39:31,113 - routers.auth - INFO - [token/exchange] User verified: platform_user_id=1615995, role=admin
+2026-09-29 20:39:31,115 - routers.auth - DEBUG - [token/exchange] User object for token issuance: id=1615995, email=19841113382@163.com, role=admin
+2026-09-29 20:39:31,115 - core.config - DEBUG - Read dynamic attribute jwt_expire_minutes from environment variable JWT_EXPIRE_MINUTES
+2026-09-29 20:39:31,115 - core.config - DEBUG - Read dynamic attribute jwt_secret_key from environment variable JWT_SECRET_KEY
+2026-09-29 20:39:31,196 - core.config - DEBUG - Read dynamic attribute jwt_algorithm from environment variable JWT_ALGORITHM
+2026-09-29 20:39:31,202 - routers.auth - INFO - [token/exchange] Token issued successfully for user_id=1615995, expires_at=2026-10-30 03:39:31.115435+00:00
+2026-09-29 20:39:31,421 - routers.auth - INFO - [token/exchange] Received platform token exchange request
+2026-09-29 20:39:31,421 - routers.auth - DEBUG - [token/exchange] Verifying token with issuer: https://auth.atoms.dev/api/v1/oidc/platform/tokens/verify
+2026-09-29 20:39:31,445 - httpcore.connection - DEBUG - connect_tcp.started host='auth.atoms.dev' port=443 local_address=None timeout=5.0 socket_options=None
+2026-09-29 20:39:31,457 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f8c35355b40>
+2026-09-29 20:39:31,457 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8c2db21f40> server_hostname='auth.atoms.dev' timeout=5.0
+2026-09-29 20:39:31,466 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f8c357c5c30>
+2026-09-29 20:39:31,466 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-09-29 20:39:31,467 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-09-29 20:39:31,467 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-09-29 20:39:31,467 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-09-29 20:39:31,467 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-09-29 20:39:31,499 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 30 Sep 2026 03:39:31 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'CF-Ray', b'a4303371adf9e4ec-LAX'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'x-mgx-request-id', b'ccd0fbdd40cdca3de6523cd1de61a894'), (b'x-request-id', b'ccd0fbdd40cdca3de6523cd1de61a894'), (b'x-response-time', b'0.001s'), (b'Content-Encoding', b'gzip')])
+2026-09-29 20:39:31,499 - httpx - INFO - HTTP Request: POST https://auth.atoms.dev/api/v1/oidc/platform/tokens/verify "HTTP/1.1 200 OK"
+2026-09-29 20:39:31,499 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-09-29 20:39:31,500 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-09-29 20:39:31,501 - httpcore.http11 - DEBUG - response_closed.started
+2026-09-29 20:39:31,501 - httpcore.http11 - DEBUG - response_closed.complete
+2026-09-29 20:39:31,501 - httpcore.connection - DEBUG - close.started
+2026-09-29 20:39:31,501 - httpcore.connection - DEBUG - close.complete
+2026-09-29 20:39:31,501 - routers.auth - DEBUG - [token/exchange] Issuer response status: 200
+2026-09-29 20:39:31,501 - routers.auth - DEBUG - [token/exchange] Issuer response body: {'success': True, 'data': {'email': '19841113382@163.com', 'exp': 1793324019, 'iat': 1790732019, 'pv': 0, 'user_id': 1615995}, 'message': 'Platform token verified', 'code': 0, 'timestamp': '2026-09-30T11:39:31.494721'}
+2026-09-29 20:39:31,502 - routers.auth - INFO - [token/exchange] Token verified, platform_user_id=1615995, email=19841113382@163.com
+2026-09-29 20:39:31,502 - routers.auth - INFO - [token/exchange] User verified: platform_user_id=1615995, role=admin
+2026-09-29 20:39:31,502 - routers.auth - DEBUG - [token/exchange] User object for token issuance: id=1615995, email=19841113382@163.com, role=admin
+2026-09-29 20:39:31,502 - routers.auth - INFO - [token/exchange] Token issued successfully for user_id=1615995, expires_at=2026-10-30 03:39:31.502366+00:00
+2026-09-29 20:41:25,951 - main - INFO - === Logging system initialized ===
+2026-09-29 20:41:25,951 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:41:25,951 - main - INFO - Log level: DEBUG
+2026-09-29 20:41:25,951 - main - INFO - Log date: 20260929
+2026-09-29 20:41:26,079 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:41:26,807 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:41:26,809 - main - INFO - Included router: routers.health.router
+2026-09-29 20:41:26,820 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:41:26,843 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:41:26,857 - main - INFO - Included router: routers.user.router
+2026-09-29 20:41:26,859 - main - INFO - === Application startup initiated ===
+2026-09-29 20:41:26,859 - main - INFO - === Application startup completed successfully ===
+2026-09-29 20:41:57,212 - main - INFO - === Logging system initialized ===
+2026-09-29 20:41:57,212 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:41:57,212 - main - INFO - Log level: DEBUG
+2026-09-29 20:41:57,212 - main - INFO - Log date: 20260929
+2026-09-29 20:41:57,319 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:41:58,075 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:41:58,078 - main - INFO - Included router: routers.health.router
+2026-09-29 20:41:58,091 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:41:58,111 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:41:58,125 - main - INFO - Included router: routers.user.router
+2026-09-29 20:41:58,126 - main - INFO - === Application startup initiated ===
+2026-09-29 20:41:58,126 - main - INFO - === Application startup completed successfully ===
+2026-09-29 20:44:16,847 - main - INFO - === Logging system initialized ===
+2026-09-29 20:44:16,847 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:44:16,847 - main - INFO - Log level: DEBUG
+2026-09-29 20:44:16,847 - main - INFO - Log date: 20260929
+2026-09-29 20:44:16,941 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:44:18,141 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:44:18,226 - main - INFO - Included router: routers.health.router
+2026-09-29 20:44:18,238 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:44:18,436 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:44:18,539 - main - INFO - Included router: routers.user.router
+2026-09-29 20:44:18,541 - main - INFO - === Application startup initiated ===
+2026-09-29 20:44:18,541 - main - INFO - === Application startup completed successfully ===
+2026-09-29 20:46:17,835 - main - INFO - === Logging system initialized ===
+2026-09-29 20:46:17,835 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:46:17,835 - main - INFO - Log level: DEBUG
+2026-09-29 20:46:17,835 - main - INFO - Log date: 20260929
+2026-09-29 20:46:17,930 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:46:18,613 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:46:18,615 - main - INFO - Included router: routers.health.router
+2026-09-29 20:46:18,624 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:46:18,642 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:46:18,653 - main - INFO - Included router: routers.user.router
+2026-09-29 20:46:18,654 - main - INFO - === Application startup initiated ===
+2026-09-29 20:46:18,654 - main - INFO - === Application startup completed successfully ===
+2026-09-29 20:48:51,828 - main - INFO - === Logging system initialized ===
+2026-09-29 20:48:51,828 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:48:51,829 - main - INFO - Log level: DEBUG
+2026-09-29 20:48:51,829 - main - INFO - Log date: 20260929
+2026-09-29 20:48:51,929 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:48:53,448 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:48:53,450 - main - INFO - Included router: routers.health.router
+2026-09-29 20:48:53,527 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:48:53,545 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:48:53,558 - main - INFO - Included router: routers.user.router
+2026-09-29 20:48:53,560 - main - INFO - === Application startup initiated ===
+2026-09-29 20:48:53,560 - main - INFO - === Application startup completed successfully ===
+2026-09-29 20:54:07,289 - main - INFO - === Logging system initialized ===
+2026-09-29 20:54:07,289 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:54:07,289 - main - INFO - Log level: DEBUG
+2026-09-29 20:54:07,289 - main - INFO - Log date: 20260929
+2026-09-29 20:54:07,377 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:54:08,179 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:54:08,182 - main - INFO - Included router: routers.health.router
+2026-09-29 20:54:08,192 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:54:08,215 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:54:08,228 - main - INFO - Included router: routers.user.router
+2026-09-29 20:54:08,229 - main - INFO - === Application startup initiated ===
+2026-09-29 20:54:08,229 - main - INFO - === Application startup completed successfully ===
+2026-09-29 20:54:36,153 - core.config - DEBUG - Read dynamic attribute app_ai_base_url from environment variable APP_AI_BASE_URL
+2026-09-29 20:54:36,153 - core.config - DEBUG - Read dynamic attribute app_ai_key from environment variable APP_AI_KEY
+2026-09-29 20:54:37,375 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-2a957e75-9a2e-4cce-a473-74deee235bc5', 'content': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一名资深前端工程师，负责根据用户描述生成可直接运行的网页应用。\n严格要求：\n1. 只返回一个完整的、可直接运行的 HTML 文件，包含全部 CSS 和 JS；必须输出完整的 <html>...</html> 结构，从 <!DOCTYPE html> 开始，到 </html> 结束，不要输出任何解释文字。\n2. 所有 CSS 写在 <style> 中、所有 JS 写在 <script> 中，禁止引用任何外部资源（CDN、图片、字体）。\n2b. 严禁省略任何代码：不允许使用“...”、“// 其余代码省略”、“// 同上”、“此处省略”等写法，每一行代码都必须完整写出。\n3. 应用必须完整可用：游戏要能用键盘（方向键/WASD/空格）和鼠标真正玩起来，页面加载后自动获取焦点（在 window 上监听 keydown，并对方向键调用 preventDefault）。\n4. 界面美观、自适应容器尺寸，界面文字默认使用中文。代码保持精简（尽量控制在 600 行以内），不写冗长注释。\n5. 修改已有应用时，在原有代码基础上按要求修改，并输出修改后的完整 HTML。'}, {'role': 'user', 'content': '请生成这个应用：做一个贪吃蛇'}], 'model': 'deepseek-v4-flash', 'max_tokens': 16000, 'stream': True, 'temperature': 0.7}}
+2026-09-29 20:54:37,376 - openai._base_client - DEBUG - Sending HTTP Request: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions
+2026-09-29 20:54:37,377 - httpcore.connection - DEBUG - connect_tcp.started host='llmapi-api.deepwisdom.ai' port=443 local_address=None timeout=5.0 socket_options=None
+2026-09-29 20:54:37,401 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f48b9cb6680>
+2026-09-29 20:54:37,402 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7f48bc61c440> server_hostname='llmapi-api.deepwisdom.ai' timeout=5.0
+2026-09-29 20:54:37,414 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f48b9cb65c0>
+2026-09-29 20:54:37,414 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-09-29 20:54:37,415 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-09-29 20:54:37,415 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-09-29 20:54:37,415 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-09-29 20:54:37,415 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-09-29 20:54:38,884 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 30 Sep 2026 03:54:38 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'no-cache'), (b'X-Oneapi-Request-Id', b'2026092920543743743669550176440'), (b'X-Oneapi-Trans-Id', b'52787291239744209'), (b'X-Request-Id', b'2026092920543743743669550176440'), (b'cf-cache-status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'a430498fda7223ba-LAX')])
+2026-09-29 20:54:38,884 - httpx - INFO - HTTP Request: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-29 20:54:38,885 - openai._base_client - DEBUG - HTTP Response: POST https://llmapi-api.deepwisdom.ai/v1/chat/completions "200 OK" Headers({'date': 'Wed, 30 Sep 2026 03:54:38 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'no-cache', 'x-oneapi-request-id': '2026092920543743743669550176440', 'x-oneapi-trans-id': '52787291239744209', 'x-request-id': '2026092920543743743669550176440', 'cf-cache-status': 'DYNAMIC', 'server': 'cloudflare', 'cf-ray': 'a430498fda7223ba-LAX'})
+2026-09-29 20:54:38,885 - openai._base_client - DEBUG - request_id: 2026092920543743743669550176440
+2026-09-29 20:54:38,885 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-09-29 20:54:52,372 - sse_starlette.sse - DEBUG - ping: b': ping - 2026-09-30 03:54:52.372441+00:00\r\n\r\n'
+2026-09-29 20:55:07,373 - sse_starlette.sse - DEBUG - ping: b': ping - 2026-09-30 03:55:07.373484+00:00\r\n\r\n'
+2026-09-29 20:55:22,166 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8fd9\\u662f\\u4e00\\u4e2a"}\r\n\r\n'
+2026-09-29 20:55:22,167 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u53ef\\u76f4\\u63a5"}\r\n\r\n'
+2026-09-29 20:55:22,167 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8fd0\\u884c\\u7684"}\r\n\r\n'
+2026-09-29 20:55:22,204 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8d2a\\u5403\\u86c7\\u6e38\\u620f\\uff0c\\u6253\\u5f00"}\r\n\r\n'
+2026-09-29 20:55:22,205 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6d4f\\u89c8\\u5668\\u5c31\\u80fd\\u73a9\\uff0c\\u7528\\u65b9\\u5411"}\r\n\r\n'
+2026-09-29 20:55:22,206 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u952e\\u3001WASD"}\r\n\r\n'
+2026-09-29 20:55:22,206 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6216\\u9f20\\u6807\\u90fd\\u80fd"}\r\n\r\n'
+2026-09-29 20:55:22,280 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u63a7\\u5236\\u3002\\n```html\\n<!"}\r\n\r\n'
+2026-09-29 20:55:22,281 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "DOCTYPE html>\\n<html lang=\\""}\r\n\r\n'
+2026-09-29 20:55:22,281 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "zh-CN\\">\\n<head>\\n"}\r\n\r\n'
+2026-09-29 20:55:22,282 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "<meta charset=\\"UTF-8"}\r\n\r\n'
+2026-09-29 20:55:22,353 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\">\\n<meta name=\\"viewport\\""}\r\n\r\n'
+2026-09-29 20:55:22,354 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " content=\\"width=device-width,"}\r\n\r\n'
+2026-09-29 20:55:22,354 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " initial-scale=1, maximum"}\r\n\r\n'
+2026-09-29 20:55:22,354 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-scale=1, user-s"}\r\n\r\n'
+2026-09-29 20:55:22,374 - sse_starlette.sse - DEBUG - ping: b': ping - 2026-09-30 03:55:22.374056+00:00\r\n\r\n'
+2026-09-29 20:55:22,452 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "calable=no\\">\\n<title"}\r\n\r\n'
+2026-09-29 20:55:22,452 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ">\\u8d2a\\u5403\\u86c7</title"}\r\n\r\n'
+2026-09-29 20:55:22,453 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ">\\n<style>\\n "}\r\n\r\n'
+2026-09-29 20:55:22,453 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " *{"}\r\n\r\n'
+2026-09-29 20:55:22,513 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "box-sizing:border-box}\\n"}\r\n\r\n'
+2026-09-29 20:55:22,514 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  html,body{height"}\r\n\r\n'
+2026-09-29 20:55:22,514 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":100%;margin:0"}\r\n\r\n'
+2026-09-29 20:55:22,515 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "}\\n  body{\\n    display"}\r\n\r\n'
+2026-09-29 20:55:22,587 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":flex;align-items:"}\r\n\r\n'
+2026-09-29 20:55:22,588 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "center;justify-content:"}\r\n\r\n'
+2026-09-29 20:55:22,588 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "center;\\n    background:rad"}\r\n\r\n'
+2026-09-29 20:55:22,589 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ial-gradient(circle at "}\r\n\r\n'
+2026-09-29 20:55:22,674 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "50% -10%, #"}\r\n\r\n'
+2026-09-29 20:55:22,675 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "16294"}\r\n\r\n'
+2026-09-29 20:55:22,675 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "a 0%, #0"}\r\n\r\n'
+2026-09-29 20:55:22,676 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "a1020 45%,"}\r\n\r\n'
+2026-09-29 20:55:22,759 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " #05070d 100"}\r\n\r\n'
+2026-09-29 20:55:22,760 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "%);\\n    color"}\r\n\r\n'
+2026-09-29 20:55:22,760 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":#e9"}\r\n\r\n'
+2026-09-29 20:55:22,761 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "f2ff;\\n    font"}\r\n\r\n'
+2026-09-29 20:55:22,825 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-family:\\"PingFang"}\r\n\r\n'
+2026-09-29 20:55:22,825 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " SC\\",\\"Microsoft YaHei"}\r\n\r\n'
+2026-09-29 20:55:22,825 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\",system-ui,-apple-system"}\r\n\r\n'
+2026-09-29 20:55:22,826 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",sans-serif;\\n    overflow"}\r\n\r\n'
+2026-09-29 20:55:22,902 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":hidden;user-select:n"}\r\n\r\n'
+2026-09-29 20:55:22,902 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "one;-"}\r\n\r\n'
+2026-09-29 20:55:22,903 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "webkit-tap-highlight-color"}\r\n\r\n'
+2026-09-29 20:55:22,903 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":transparent;\\n  }\\n"}\r\n\r\n'
+2026-09-29 20:55:22,966 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  .app{display:"}\r\n\r\n'
+2026-09-29 20:55:22,967 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "flex;flex-direction:column"}\r\n\r\n'
+2026-09-29 20:55:22,967 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";align-items:center;"}\r\n\r\n'
+2026-09-29 20:55:22,967 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "gap:12"}\r\n\r\n'
+2026-09-29 20:55:23,059 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px;padding:10px"}\r\n\r\n'
+2026-09-29 20:55:23,060 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "}\\n  .hud{"}\r\n\r\n'
+2026-09-29 20:55:23,060 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "display:flex;gap:"}\r\n\r\n'
+2026-09-29 20:55:23,060 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "10px;width:min"}\r\n\r\n'
+2026-09-29 20:55:23,139 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(88vw,56"}\r\n\r\n'
+2026-09-29 20:55:23,140 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "vh,520px)}\\n "}\r\n\r\n'
+2026-09-29 20:55:23,140 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " .card{\\n    flex:"}\r\n\r\n'
+2026-09-29 20:55:23,140 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1;background:rgba"}\r\n\r\n'
+2026-09-29 20:55:23,221 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(255,255,255"}\r\n\r\n'
+2026-09-29 20:55:23,221 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",.06);border:1"}\r\n\r\n'
+2026-09-29 20:55:23,221 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px solid rgba(120,"}\r\n\r\n'
+2026-09-29 20:55:23,222 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "255,200,.16);\\n"}\r\n\r\n'
+2026-09-29 20:55:23,303 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    border-radius:12px"}\r\n\r\n'
+2026-09-29 20:55:23,304 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";padding:7"}\r\n\r\n'
+2026-09-29 20:55:23,304 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px 6px;text"}\r\n\r\n'
+2026-09-29 20:55:23,304 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-align:center;\\n  }\\n"}\r\n\r\n'
+2026-09-29 20:55:23,389 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  .card span{display"}\r\n\r\n'
+2026-09-29 20:55:23,390 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":block;font-size:"}\r\n\r\n'
+2026-09-29 20:55:23,391 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "11px;letter-spacing"}\r\n\r\n'
+2026-09-29 20:55:23,391 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":2px;color:#"}\r\n\r\n'
+2026-09-29 20:55:23,479 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "8fa9c9}\\n"}\r\n\r\n'
+2026-09-29 20:55:23,480 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  .card b{display"}\r\n\r\n'
+2026-09-29 20:55:23,480 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":block;font-size:"}\r\n\r\n'
+2026-09-29 20:55:23,481 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "20px;font"}\r\n\r\n'
+2026-09-29 20:55:23,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-variant-numeric:tabular"}\r\n\r\n'
+2026-09-29 20:55:23,504 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-nums;color:#6"}\r\n\r\n'
+2026-09-29 20:55:23,504 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "cf5b5;margin"}\r\n\r\n'
+2026-09-29 20:55:23,504 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-top:2px}\\n "}\r\n\r\n'
+2026-09-29 20:55:23,564 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " .stage{position:relative"}\r\n\r\n'
+2026-09-29 20:55:23,565 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";width:min(88"}\r\n\r\n'
+2026-09-29 20:55:23,565 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "vw,56vh,520"}\r\n\r\n'
+2026-09-29 20:55:23,566 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px);aspect-ratio:"}\r\n\r\n'
+2026-09-29 20:55:23,694 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1/1}\\n  canvas"}\r\n\r\n'
+2026-09-29 20:55:23,695 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "{\\n    width:100%;"}\r\n\r\n'
+2026-09-29 20:55:23,696 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "height:100%;display:"}\r\n\r\n'
+2026-09-29 20:55:23,696 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "block;border-radius:16"}\r\n\r\n'
+2026-09-29 20:55:23,731 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px;background:#0a"}\r\n\r\n'
+2026-09-29 20:55:23,732 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1120;\\n    box-shadow"}\r\n\r\n'
+2026-09-29 20:55:23,732 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":0 0 0"}\r\n\r\n'
+2026-09-29 20:55:23,733 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 1px rgba(120"}\r\n\r\n'
+2026-09-29 20:55:23,814 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",255,200,.18"}\r\n\r\n'
+2026-09-29 20:55:23,815 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "), 0 0 "}\r\n\r\n'
+2026-09-29 20:55:23,816 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "40px rgba(45,"}\r\n\r\n'
+2026-09-29 20:55:23,816 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "255,170,.08),"}\r\n\r\n'
+2026-09-29 20:55:23,877 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 0 24px "}\r\n\r\n'
+2026-09-29 20:55:23,877 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "50px rgba(0,"}\r\n\r\n'
+2026-09-29 20:55:23,878 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0,0,.55);\\n"}\r\n\r\n'
+2026-09-29 20:55:23,878 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  }\\n  .overlay"}\r\n\r\n'
+2026-09-29 20:55:23,962 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "{\\n    position:absolute;"}\r\n\r\n'
+2026-09-29 20:55:23,962 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "inset:0;display"}\r\n\r\n'
+2026-09-29 20:55:23,963 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":flex;flex-direction:"}\r\n\r\n'
+2026-09-29 20:55:23,964 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "column;align-items:center"}\r\n\r\n'
+2026-09-29 20:55:24,087 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";justify-content:center"}\r\n\r\n'
+2026-09-29 20:55:24,087 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n    gap:14"}\r\n\r\n'
+2026-09-29 20:55:24,088 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px;text-align:center"}\r\n\r\n'
+2026-09-29 20:55:24,088 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";border-radius:16px"}\r\n\r\n'
+2026-09-29 20:55:24,195 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";background:rgba("}\r\n\r\n'
+2026-09-29 20:55:24,196 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "6,10,20"}\r\n\r\n'
+2026-09-29 20:55:24,196 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",.78);\\n    backdrop"}\r\n\r\n'
+2026-09-29 20:55:24,197 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-filter:blur(4"}\r\n\r\n'
+2026-09-29 20:55:24,257 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px);-"}\r\n\r\n'
+2026-09-29 20:55:24,258 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "webkit-backdrop-filter:bl"}\r\n\r\n'
+2026-09-29 20:55:24,258 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ur(4px);transition"}\r\n\r\n'
+2026-09-29 20:55:24,258 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":opacity .2s"}\r\n\r\n'
+2026-09-29 20:55:24,362 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n  }\\n  .over"}\r\n\r\n'
+2026-09-29 20:55:24,363 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "lay.hide{opacity"}\r\n\r\n'
+2026-09-29 20:55:24,363 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":0;pointer-events"}\r\n\r\n'
+2026-09-29 20:55:24,363 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":none}\\n  .over"}\r\n\r\n'
+2026-09-29 20:55:24,477 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "lay h1{\\n"}\r\n\r\n'
+2026-09-29 20:55:24,478 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    margin:0;font"}\r\n\r\n'
+2026-09-29 20:55:24,478 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-size:clamp(22"}\r\n\r\n'
+2026-09-29 20:55:24,479 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px,5vw,32"}\r\n\r\n'
+2026-09-29 20:55:24,516 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px);letter-spacing:"}\r\n\r\n'
+2026-09-29 20:55:24,517 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "5px;color:#8"}\r\n\r\n'
+2026-09-29 20:55:24,517 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "dffcb;\\n    text"}\r\n\r\n'
+2026-09-29 20:55:24,518 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-shadow:0 0 "}\r\n\r\n'
+2026-09-29 20:55:24,600 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "22px rgba(45"}\r\n\r\n'
+2026-09-29 20:55:24,601 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",255,170,.6"}\r\n\r\n'
+2026-09-29 20:55:24,601 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n  }\\n  .over"}\r\n\r\n'
+2026-09-29 20:55:24,602 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "lay p{margin:0"}\r\n\r\n'
+2026-09-29 20:55:24,715 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";font-size:13px"}\r\n\r\n'
+2026-09-29 20:55:24,716 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";line-height:1."}\r\n\r\n'
+2026-09-29 20:55:24,717 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "9;color:#a"}\r\n\r\n'
+2026-09-29 20:55:24,718 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "8bdd8}\\n "}\r\n\r\n'
+2026-09-29 20:55:24,847 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " button"}\r\n\r\n'
+2026-09-29 20:55:24,847 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "{font-family:inherit;"}\r\n\r\n'
+2026-09-29 20:55:24,848 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "cursor:pointer}\\n  ."}\r\n\r\n'
+2026-09-29 20:55:24,848 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "overlay button{\\n    padding"}\r\n\r\n'
+2026-09-29 20:55:24,878 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":11px 26px"}\r\n\r\n'
+2026-09-29 20:55:24,878 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";font-size:15px"}\r\n\r\n'
+2026-09-29 20:55:24,879 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";letter-spacing:2"}\r\n\r\n'
+2026-09-29 20:55:24,880 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px;color:#04140"}\r\n\r\n'
+2026-09-29 20:55:24,954 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "d;font-weight:700"}\r\n\r\n'
+2026-09-29 20:55:24,956 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n    border:none;"}\r\n\r\n'
+2026-09-29 20:55:24,956 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "border-radius:999px;"}\r\n\r\n'
+2026-09-29 20:55:24,957 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "background:linear-gradient(135"}\r\n\r\n'
+2026-09-29 20:55:25,042 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "deg,#6cf"}\r\n\r\n'
+2026-09-29 20:55:25,043 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "5b5,#37d"}\r\n\r\n'
+2026-09-29 20:55:25,043 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1ff);\\n    box-shadow"}\r\n\r\n'
+2026-09-29 20:55:25,044 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":0 8px "}\r\n\r\n'
+2026-09-29 20:55:25,183 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "24px rgba(45"}\r\n\r\n'
+2026-09-29 20:55:25,183 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",255,170,.35"}\r\n\r\n'
+2026-09-29 20:55:25,184 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n  }\\n  .over"}\r\n\r\n'
+2026-09-29 20:55:25,184 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "lay button:active{transform"}\r\n\r\n'
+2026-09-29 20:55:25,264 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":translateY(1px"}\r\n\r\n'
+2026-09-29 20:55:25,265 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ")}\\n  .pad{display"}\r\n\r\n'
+2026-09-29 20:55:25,266 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":grid;grid-template-column"}\r\n\r\n'
+2026-09-29 20:55:25,267 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "s:repeat(3,"}\r\n\r\n'
+2026-09-29 20:55:25,345 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "56px);grid-template-"}\r\n\r\n'
+2026-09-29 20:55:25,345 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "rows:repeat(2,"}\r\n\r\n'
+2026-09-29 20:55:25,346 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "50"}\r\n\r\n'
+2026-09-29 20:55:25,346 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px);gap:8px"}\r\n\r\n'
+2026-09-29 20:55:25,460 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "}\\n  .pad button{\\n"}\r\n\r\n'
+2026-09-29 20:55:25,461 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    border:1px solid"}\r\n\r\n'
+2026-09-29 20:55:25,461 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " rgba(120,255"}\r\n\r\n'
+2026-09-29 20:55:25,462 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",200,.2);background"}\r\n\r\n'
+2026-09-29 20:55:25,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":rgba(255,"}\r\n\r\n'
+2026-09-29 20:55:25,504 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "255,255,.06);"}\r\n\r\n'
+2026-09-29 20:55:25,504 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "color:#9fe"}\r\n\r\n'
+2026-09-29 20:55:25,504 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "9c9;\\n    font"}\r\n\r\n'
+2026-09-29 20:55:25,567 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-size:16"}\r\n\r\n'
+2026-09-29 20:55:25,568 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px;border-radius:12"}\r\n\r\n'
+2026-09-29 20:55:25,568 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "px;transition:"}\r\n\r\n'
+2026-09-29 20:55:25,568 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "background .12s,"}\r\n\r\n'
+2026-09-29 20:55:25,627 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "color .12s;\\n "}\r\n\r\n'
+2026-09-29 20:55:25,627 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n  .pad button:"}\r\n\r\n'
+2026-09-29 20:55:25,628 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "active{background:rgba"}\r\n\r\n'
+2026-09-29 20:55:25,628 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(108,245,181"}\r\n\r\n'
+2026-09-29 20:55:25,698 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",.3"}\r\n\r\n'
+2026-09-29 20:55:25,698 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");color:#04140"}\r\n\r\n'
+2026-09-29 20:55:25,699 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "d}\\n  .pad button"}\r\n\r\n'
+2026-09-29 20:55:25,700 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":nth-child(1){"}\r\n\r\n'
+2026-09-29 20:55:25,775 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "grid-area:1/2"}\r\n\r\n'
+2026-09-29 20:55:25,776 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "/2/3}\\n "}\r\n\r\n'
+2026-09-29 20:55:25,776 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " .pad button:nth-child"}\r\n\r\n'
+2026-09-29 20:55:25,777 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(2){grid-area:"}\r\n\r\n'
+2026-09-29 20:55:25,839 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "2/1/3/"}\r\n\r\n'
+2026-09-29 20:55:25,840 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "2}\\n  .pad button"}\r\n\r\n'
+2026-09-29 20:55:25,841 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":nth-child(3){"}\r\n\r\n'
+2026-09-29 20:55:25,841 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "grid-area:2/2"}\r\n\r\n'
+2026-09-29 20:55:25,924 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "/3/3}\\n "}\r\n\r\n'
+2026-09-29 20:55:25,924 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " .pad button:nth-child"}\r\n\r\n'
+2026-09-29 20:55:25,925 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(4){grid-area:"}\r\n\r\n'
+2026-09-29 20:55:25,925 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "2/3/3/"}\r\n\r\n'
+2026-09-29 20:55:25,995 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "4}\\n  .tip{"}\r\n\r\n'
+2026-09-29 20:55:25,996 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "font-size:12px;"}\r\n\r\n'
+2026-09-29 20:55:25,996 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "color:#7a"}\r\n\r\n'
+2026-09-29 20:55:25,997 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "8fa8;margin:"}\r\n\r\n'
+2026-09-29 20:55:26,068 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0;text-align:center"}\r\n\r\n'
+2026-09-29 20:55:26,069 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";line"}\r\n\r\n'
+2026-09-29 20:55:26,069 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-height:1.6}\\n"}\r\n\r\n'
+2026-09-29 20:55:26,070 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "</style>\\n</head>\\n"}\r\n\r\n'
+2026-09-29 20:55:26,147 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "<body>\\n<div class=\\"app"}\r\n\r\n'
+2026-09-29 20:55:26,148 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\">\\n  <div class=\\""}\r\n\r\n'
+2026-09-29 20:55:26,148 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "hud\\">\\n    <div"}\r\n\r\n'
+2026-09-29 20:55:26,148 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " class=\\"card\\"><span>"}\r\n\r\n'
+2026-09-29 20:55:26,220 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5206\\u6570</span><b id"}\r\n\r\n'
+2026-09-29 20:55:26,220 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "=\\"scoreEl\\">0</"}\r\n\r\n'
+2026-09-29 20:55:26,221 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "b></div>\\n    <"}\r\n\r\n'
+2026-09-29 20:55:26,221 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "div class=\\"card\\"><span"}\r\n\r\n'
+2026-09-29 20:55:26,290 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ">\\u6700\\u9ad8\\u5206</span><"}\r\n\r\n'
+2026-09-29 20:55:26,291 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "b id=\\"bestEl\\">"}\r\n\r\n'
+2026-09-29 20:55:26,291 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0</b></div>\\n"}\r\n\r\n'
+2026-09-29 20:55:26,292 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    <div class=\\"card"}\r\n\r\n'
+2026-09-29 20:55:26,371 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\"><span>\\u957f\\u5ea6</span"}\r\n\r\n'
+2026-09-29 20:55:26,371 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "><b id=\\"lenEl"}\r\n\r\n'
+2026-09-29 20:55:26,372 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\">3</b></div"}\r\n\r\n'
+2026-09-29 20:55:26,372 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ">\\n  </div>\\n\\n"}\r\n\r\n'
+2026-09-29 20:55:26,465 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  <div class=\\"stage"}\r\n\r\n'
+2026-09-29 20:55:26,465 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\">\\n    <canvas id=\\""}\r\n\r\n'
+2026-09-29 20:55:26,465 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "cv\\" width=\\"600\\""}\r\n\r\n'
+2026-09-29 20:55:26,466 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " height=\\"600\\"></canvas>\\n"}\r\n\r\n'
+2026-09-29 20:55:26,545 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    <div class=\\"over"}\r\n\r\n'
+2026-09-29 20:55:26,546 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "lay\\" id=\\"ov\\">\\n"}\r\n\r\n'
+2026-09-29 20:55:26,546 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      <h1 id=\\""}\r\n\r\n'
+2026-09-29 20:55:26,547 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ovTitle\\">\\u8d2a\\u5403\\u86c7"}\r\n\r\n'
+2026-09-29 20:55:26,605 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "</h1>\\n      <"}\r\n\r\n'
+2026-09-29 20:55:26,605 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "p id=\\"ovText\\">"}\r\n\r\n'
+2026-09-29 20:55:26,606 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u65b9\\u5411\\u952e / WASD "}\r\n\r\n'
+2026-09-29 20:55:26,606 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u63a7\\u5236\\u65b9\\u5411<br>\\u7a7a\\u683c"}\r\n\r\n'
+2026-09-29 20:55:26,646 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6682\\u505c \\u00b7 \\u9f20\\u6807\\u5728\\u68cb\\u76d8"}\r\n\r\n'
+2026-09-29 20:55:26,647 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u4e0a\\u79fb\\u52a8\\u4e5f\\u80fd"}\r\n\r\n'
+2026-09-29 20:55:26,647 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8f6c\\u5411</p>\\n      <"}\r\n\r\n'
+2026-09-29 20:55:26,647 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "button id=\\"ovBtn\\">"}\r\n\r\n'
+2026-09-29 20:55:26,726 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5f00\\u59cb\\u6e38\\u620f</button>\\n   "}\r\n\r\n'
+2026-09-29 20:55:26,726 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " </div>\\n  </div"}\r\n\r\n'
+2026-09-29 20:55:26,727 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ">\\n\\n  <div class=\\""}\r\n\r\n'
+2026-09-29 20:55:26,727 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "pad\\">\\n    <button data"}\r\n\r\n'
+2026-09-29 20:55:26,801 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-dir=\\"up\\""}\r\n\r\n'
+2026-09-29 20:55:26,802 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " aria-label=\\"\\u4e0a\\">\\u25b2"}\r\n\r\n'
+2026-09-29 20:55:26,803 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "</button>\\n    <button"}\r\n\r\n'
+2026-09-29 20:55:26,803 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " data-dir=\\"left\\""}\r\n\r\n'
+2026-09-29 20:55:26,876 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " aria-label=\\"\\u5de6\\">"}\r\n\r\n'
+2026-09-29 20:55:26,876 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u25c0</button>\\n    <"}\r\n\r\n'
+2026-09-29 20:55:26,877 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "button data-dir=\\"down"}\r\n\r\n'
+2026-09-29 20:55:26,878 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\" aria-label=\\"\\u4e0b\\">"}\r\n\r\n'
+2026-09-29 20:55:26,951 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u25bc</button>\\n    <"}\r\n\r\n'
+2026-09-29 20:55:26,952 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "button data-dir=\\"right"}\r\n\r\n'
+2026-09-29 20:55:26,953 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\" aria-label=\\"\\u53f3\\">"}\r\n\r\n'
+2026-09-29 20:55:26,953 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u25b6</button>\\n  </"}\r\n\r\n'
+2026-09-29 20:55:27,021 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "div>\\n\\n  <p class"}\r\n\r\n'
+2026-09-29 20:55:27,022 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "=\\"tip\\">\\u65b9\\u5411\\u952e /"}\r\n\r\n'
+2026-09-29 20:55:27,022 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " WASD \\u79fb\\u52a8 \\u00b7 "}\r\n\r\n'
+2026-09-29 20:55:27,023 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7a7a\\u683c\\u6682\\u505c \\u00b7 \\u9f20\\u6807\\u79fb\\u52a8"}\r\n\r\n'
+2026-09-29 20:55:27,115 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8f6c\\u5411</p>\\n</div"}\r\n\r\n'
+2026-09-29 20:55:27,116 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ">\\n\\n<script>\\n(function(){\\n"}\r\n\r\n'
+2026-09-29 20:55:27,117 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  var cv = document.getElementById"}\r\n\r\n'
+2026-09-29 20:55:27,117 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(\'cv\');\\n  var ctx"}\r\n\r\n'
+2026-09-29 20:55:27,194 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = cv.getContext(\'2"}\r\n\r\n'
+2026-09-29 20:55:27,194 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "d\');\\n  var ov ="}\r\n\r\n'
+2026-09-29 20:55:27,195 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " document.getElementById(\'ov\');\\n "}\r\n\r\n'
+2026-09-29 20:55:27,196 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var ovTitle = document.getElementById"}\r\n\r\n'
+2026-09-29 20:55:27,253 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(\'ovTitle\');\\n  var"}\r\n\r\n'
+2026-09-29 20:55:27,254 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ovText = document.getElementById(\'"}\r\n\r\n'
+2026-09-29 20:55:27,255 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ovText\');\\n  var ov"}\r\n\r\n'
+2026-09-29 20:55:27,256 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Btn = document.getElementById(\'ov"}\r\n\r\n'
+2026-09-29 20:55:27,337 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Btn\');\\n  var scoreEl"}\r\n\r\n'
+2026-09-29 20:55:27,338 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = document.getElementById(\'scoreEl"}\r\n\r\n'
+2026-09-29 20:55:27,338 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\');\\n  var bestEl ="}\r\n\r\n'
+2026-09-29 20:55:27,338 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " document.getElementById(\'bestEl\');\\n"}\r\n\r\n'
+2026-09-29 20:55:27,435 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  var lenEl = document"}\r\n\r\n'
+2026-09-29 20:55:27,435 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".getElementById(\'lenEl\');\\n\\n "}\r\n\r\n'
+2026-09-29 20:55:27,436 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var N = 20;\\n"}\r\n\r\n'
+2026-09-29 20:55:27,436 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  var SIZE = cv.width"}\r\n\r\n'
+2026-09-29 20:55:27,494 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n  var CELL = SIZE"}\r\n\r\n'
+2026-09-29 20:55:27,495 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " / N;\\n  var DIR"}\r\n\r\n'
+2026-09-29 20:55:27,495 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = { up:{x:"}\r\n\r\n'
+2026-09-29 20:55:27,496 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0,y:-1}, down"}\r\n\r\n'
+2026-09-29 20:55:27,581 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":{x:0,y:"}\r\n\r\n'
+2026-09-29 20:55:27,582 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1}, left:{x:-"}\r\n\r\n'
+2026-09-29 20:55:27,583 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1,y:0}, right"}\r\n\r\n'
+2026-09-29 20:55:27,583 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":{x:1,y:"}\r\n\r\n'
+2026-09-29 20:55:27,690 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0} };\\n\\n  var snake"}\r\n\r\n'
+2026-09-29 20:55:27,691 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", dir, next"}\r\n\r\n'
+2026-09-29 20:55:27,691 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Dir, food, score,"}\r\n\r\n'
+2026-09-29 20:55:27,692 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " stepTime, acc"}\r\n\r\n'
+2026-09-29 20:55:27,757 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ","}\r\n\r\n'
+2026-09-29 20:55:27,758 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " state;\\n"}\r\n\r\n'
+2026-09-29 20:55:27,758 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  var best = 0"}\r\n\r\n'
+2026-09-29 20:55:27,759 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n  var last = performance"}\r\n\r\n'
+2026-09-29 20:55:27,810 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".now();\\n\\n  try { best"}\r\n\r\n'
+2026-09-29 20:55:27,810 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = Number(localStorage.getItem"}\r\n\r\n'
+2026-09-29 20:55:27,811 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(\'snake_best_v"}\r\n\r\n'
+2026-09-29 20:55:27,811 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1\')) || 0;"}\r\n\r\n'
+2026-09-29 20:55:27,885 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " } catch(e) { best"}\r\n\r\n'
+2026-09-29 20:55:27,886 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = 0; }\\n\\n"}\r\n\r\n'
+2026-09-29 20:55:27,886 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  function saveBest(){\\n   "}\r\n\r\n'
+2026-09-29 20:55:27,887 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " try { localStorage.setItem(\'"}\r\n\r\n'
+2026-09-29 20:55:27,952 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "snake_best_v1"}\r\n\r\n'
+2026-09-29 20:55:27,952 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\', String(best)); }"}\r\n\r\n'
+2026-09-29 20:55:27,953 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " catch(e) {}\\n  }\\n\\n"}\r\n\r\n'
+2026-09-29 20:55:27,953 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  function place"}\r\n\r\n'
+2026-09-29 20:55:28,034 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Food(){\\n    var free"}\r\n\r\n'
+2026-09-29 20:55:28,035 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = [];\\n    for(var y"}\r\n\r\n'
+2026-09-29 20:55:28,035 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = 0; y <"}\r\n\r\n'
+2026-09-29 20:55:28,036 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " N; y++){\\n      for"}\r\n\r\n'
+2026-09-29 20:55:28,110 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(var x = 0;"}\r\n\r\n'
+2026-09-29 20:55:28,111 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " x < N; x++){\\n"}\r\n\r\n'
+2026-09-29 20:55:28,111 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "        var occupied = false;\\n"}\r\n\r\n'
+2026-09-29 20:55:28,111 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "        for(var i = "}\r\n\r\n'
+2026-09-29 20:55:28,177 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0; i < snake.length"}\r\n\r\n'
+2026-09-29 20:55:28,177 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "; i++){\\n          if(s"}\r\n\r\n'
+2026-09-29 20:55:28,178 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "nake[i].x === x"}\r\n\r\n'
+2026-09-29 20:55:28,178 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " && snake[i].y ==="}\r\n\r\n'
+2026-09-29 20:55:28,249 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " y){ occupied = true;"}\r\n\r\n'
+2026-09-29 20:55:28,250 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " break; }\\n        }\\n       "}\r\n\r\n'
+2026-09-29 20:55:28,250 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " if(!occupied) free.push"}\r\n\r\n'
+2026-09-29 20:55:28,250 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "({x"}\r\n\r\n'
+2026-09-29 20:55:28,335 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":x, y:y});\\n"}\r\n\r\n'
+2026-09-29 20:55:28,335 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      }\\n    }\\n    if"}\r\n\r\n'
+2026-09-29 20:55:28,336 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(free.length === 0"}\r\n\r\n'
+2026-09-29 20:55:28,336 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "){"}\r\n\r\n'
+2026-09-29 20:55:28,402 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " food = {x:0"}\r\n\r\n'
+2026-09-29 20:55:28,402 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", y:0}; return"}\r\n\r\n'
+2026-09-29 20:55:28,402 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "; }\\n    food = free"}\r\n\r\n'
+2026-09-29 20:55:28,403 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "[(Math.random() * free"}\r\n\r\n'
+2026-09-29 20:55:28,469 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".length) | 0];\\n"}\r\n\r\n'
+2026-09-29 20:55:28,469 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  }\\n\\n  function updateH"}\r\n\r\n'
+2026-09-29 20:55:28,469 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ud(){\\n    score"}\r\n\r\n'
+2026-09-29 20:55:28,469 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "El.textContent = score;\\n"}\r\n\r\n'
+2026-09-29 20:55:28,533 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    bestEl.textContent ="}\r\n\r\n'
+2026-09-29 20:55:28,534 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " best;\\n    lenEl"}\r\n\r\n'
+2026-09-29 20:55:28,534 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".textContent = snake ? snake"}\r\n\r\n'
+2026-09-29 20:55:28,535 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".length : 3;\\n "}\r\n\r\n'
+2026-09-29 20:55:28,605 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n\\n  function reset(){\\n   "}\r\n\r\n'
+2026-09-29 20:55:28,606 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " snake = [{x:9"}\r\n\r\n'
+2026-09-29 20:55:28,606 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",y:10},{x:"}\r\n\r\n'
+2026-09-29 20:55:28,606 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "8,y:10},{x"}\r\n\r\n'
+2026-09-29 20:55:28,712 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":7,y:10}"}\r\n\r\n'
+2026-09-29 20:55:28,712 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "];\\n    dir = {x"}\r\n\r\n'
+2026-09-29 20:55:28,713 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":1,"}\r\n\r\n'
+2026-09-29 20:55:28,713 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " y:0};\\n    next"}\r\n\r\n'
+2026-09-29 20:55:28,811 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Dir = {x:1"}\r\n\r\n'
+2026-09-29 20:55:28,812 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", y:0};\\n   "}\r\n\r\n'
+2026-09-29 20:55:28,812 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " score = 0;\\n   "}\r\n\r\n'
+2026-09-29 20:55:28,813 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " stepTime = 140;\\n"}\r\n\r\n'
+2026-09-29 20:55:28,891 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    acc = 0;\\n"}\r\n\r\n'
+2026-09-29 20:55:28,891 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    placeFood();\\n    update"}\r\n\r\n'
+2026-09-29 20:55:28,891 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Hud();\\n  }\\n\\n "}\r\n\r\n'
+2026-09-29 20:55:28,892 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " function setDir(x, y"}\r\n\r\n'
+2026-09-29 20:55:28,951 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "){\\n    if(state !== \'"}\r\n\r\n'
+2026-09-29 20:55:28,951 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "running\') return;\\n    if"}\r\n\r\n'
+2026-09-29 20:55:28,951 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(x === dir.x && y"}\r\n\r\n'
+2026-09-29 20:55:28,952 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " === dir.y) return;\\n"}\r\n\r\n'
+2026-09-29 20:55:29,032 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    if(x === -dir"}\r\n\r\n'
+2026-09-29 20:55:29,033 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".x && y === -dir"}\r\n\r\n'
+2026-09-29 20:55:29,034 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".y) return;\\n    next"}\r\n\r\n'
+2026-09-29 20:55:29,034 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Dir = {x:x"}\r\n\r\n'
+2026-09-29 20:55:29,103 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", y:y};\\n "}\r\n\r\n'
+2026-09-29 20:55:29,104 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n\\n  function step(){\\n   "}\r\n\r\n'
+2026-09-29 20:55:29,105 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " dir = nextDir;\\n   "}\r\n\r\n'
+2026-09-29 20:55:29,105 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var head = { x"}\r\n\r\n'
+2026-09-29 20:55:29,188 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ": snake[0].x"}\r\n\r\n'
+2026-09-29 20:55:29,189 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + dir.x, y:"}\r\n\r\n'
+2026-09-29 20:55:29,189 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " snake[0].y +"}\r\n\r\n'
+2026-09-29 20:55:29,255 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " dir.y };\\n\\n"}\r\n\r\n'
+2026-09-29 20:55:29,275 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    if(head.x < "}\r\n\r\n'
+2026-09-29 20:55:29,276 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0 || head.y < "}\r\n\r\n'
+2026-09-29 20:55:29,276 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0 || head.x >= N"}\r\n\r\n'
+2026-09-29 20:55:29,277 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " || head.y >= N){"}\r\n\r\n'
+2026-09-29 20:55:29,352 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " gameOver(); return; }\\n"}\r\n\r\n'
+2026-09-29 20:55:29,353 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    for(var i = "}\r\n\r\n'
+2026-09-29 20:55:29,353 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0; i < snake.length"}\r\n\r\n'
+2026-09-29 20:55:29,353 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " - 1; i++){\\n"}\r\n\r\n'
+2026-09-29 20:55:29,514 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      if(snake[i]."}\r\n\r\n'
+2026-09-29 20:55:29,515 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "x === head.x && snake"}\r\n\r\n'
+2026-09-29 20:55:29,515 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "[i].y === head.y"}\r\n\r\n'
+2026-09-29 20:55:29,516 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "){ gameOver(); return;"}\r\n\r\n'
+2026-09-29 20:55:29,541 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n    }\\n\\n    snake.un"}\r\n\r\n'
+2026-09-29 20:55:29,542 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "shift(head);\\n\\n    if(head"}\r\n\r\n'
+2026-09-29 20:55:29,542 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".x === food.x && head"}\r\n\r\n'
+2026-09-29 20:55:29,542 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".y === food.y){\\n     "}\r\n\r\n'
+2026-09-29 20:55:29,641 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " score += 10;\\n     "}\r\n\r\n'
+2026-09-29 20:55:29,641 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " stepTime"}\r\n\r\n'
+2026-09-29 20:55:29,642 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = Math.max(70"}\r\n\r\n'
+2026-09-29 20:55:29,642 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", 140 - Math.floor"}\r\n\r\n'
+2026-09-29 20:55:29,726 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(score / 50"}\r\n\r\n'
+2026-09-29 20:55:29,726 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ") * 10);\\n     "}\r\n\r\n'
+2026-09-29 20:55:29,727 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " placeFood();\\n    } else"}\r\n\r\n'
+2026-09-29 20:55:29,728 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " {\\n      snake.pop();\\n   "}\r\n\r\n'
+2026-09-29 20:55:29,796 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n    updateHud();\\n"}\r\n\r\n'
+2026-09-29 20:55:29,796 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  }\\n\\n  function gameOver"}\r\n\r\n'
+2026-09-29 20:55:29,796 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(){\\n    state = \'over"}\r\n\r\n'
+2026-09-29 20:55:29,797 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n    if(score >"}\r\n\r\n'
+2026-09-29 20:55:29,885 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " best){"}\r\n\r\n'
+2026-09-29 20:55:29,886 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " best = score; saveBest"}\r\n\r\n'
+2026-09-29 20:55:29,886 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(); }\\n    update"}\r\n\r\n'
+2026-09-29 20:55:29,887 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Hud();\\n    showOver"}\r\n\r\n'
+2026-09-29 20:55:29,950 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "lay();\\n  }\\n\\n  function"}\r\n\r\n'
+2026-09-29 20:55:29,951 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " showOverlay(){\\n    if"}\r\n\r\n'
+2026-09-29 20:55:29,951 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(state === \'running\'){"}\r\n\r\n'
+2026-09-29 20:55:29,951 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ov.classList.add(\'hide"}\r\n\r\n'
+2026-09-29 20:55:30,055 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\'); return; }\\n    ov"}\r\n\r\n'
+2026-09-29 20:55:30,055 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".classList.remove(\'hide\');\\n"}\r\n\r\n'
+2026-09-29 20:55:30,055 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    if(state === \'id"}\r\n\r\n'
+2026-09-29 20:55:30,056 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "le\'){\\n      ovTitle.text"}\r\n\r\n'
+2026-09-29 20:55:30,108 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Content = \'\\u8d2a\\u5403\\u86c7"}\r\n\r\n'
+2026-09-29 20:55:30,109 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n      ovText.innerHTML ="}\r\n\r\n'
+2026-09-29 20:55:30,109 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'\\u65b9\\u5411\\u952e / WASD"}\r\n\r\n'
+2026-09-29 20:55:30,110 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \\u63a7\\u5236\\u65b9\\u5411<br>\\u7a7a\\u683c"}\r\n\r\n'
+2026-09-29 20:55:30,198 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6682\\u505c \\u00b7 \\u9f20\\u6807\\u5728\\u68cb\\u76d8"}\r\n\r\n'
+2026-09-29 20:55:30,198 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u4e0a\\u79fb\\u52a8\\u4e5f\\u80fd\\u8f6c\\u5411\';\\n     "}\r\n\r\n'
+2026-09-29 20:55:30,199 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ovBtn.textContent = \'"}\r\n\r\n'
+2026-09-29 20:55:30,199 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5f00\\u59cb\\u6e38\\u620f\';\\n    } else"}\r\n\r\n'
+2026-09-29 20:55:30,267 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " if(state === \'paused"}\r\n\r\n'
+2026-09-29 20:55:30,268 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\'){\\n      ovTitle.textContent"}\r\n\r\n'
+2026-09-29 20:55:30,268 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = \'\\u5df2\\u6682\\u505c\';\\n     "}\r\n\r\n'
+2026-09-29 20:55:30,268 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ovText.innerHTML = \'\\u6309"}\r\n\r\n'
+2026-09-29 20:55:30,344 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7a7a\\u683c\\u6216\\u70b9\\u51fb\\u4e0b\\u65b9\\u6309\\u94ae\\u7ee7\\u7eed"}\r\n\r\n'
+2026-09-29 20:55:30,344 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n      ovBtn.textContent"}\r\n\r\n'
+2026-09-29 20:55:30,344 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = \'\\u7ee7\\u7eed\\u6e38\\u620f\';\\n   "}\r\n\r\n'
+2026-09-29 20:55:30,345 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " } else {\\n      ovTitle"}\r\n\r\n'
+2026-09-29 20:55:30,407 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".textContent = \'\\u6e38\\u620f\\u7ed3\\u675f"}\r\n\r\n'
+2026-09-29 20:55:30,408 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n      ovText.innerHTML ="}\r\n\r\n'
+2026-09-29 20:55:30,408 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'\\u672c\\u5c40\\u5f97\\u5206 <b"}\r\n\r\n'
+2026-09-29 20:55:30,408 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " style=\\"color:#6"}\r\n\r\n'
+2026-09-29 20:55:30,493 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "cf5b5\\">\'"}\r\n\r\n'
+2026-09-29 20:55:30,493 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + score + \'</b><"}\r\n\r\n'
+2026-09-29 20:55:30,494 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "br>\\u6700\\u9ad8\\u5206 \' +"}\r\n\r\n'
+2026-09-29 20:55:30,494 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " best;\\n      ovBtn.text"}\r\n\r\n'
+2026-09-29 20:55:30,562 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Content = \'\\u518d\\u73a9\\u4e00\\u6b21"}\r\n\r\n'
+2026-09-29 20:55:30,562 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n    }\\n  }\\n\\n "}\r\n\r\n'
+2026-09-29 20:55:30,563 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " function startGame(){\\n    reset"}\r\n\r\n'
+2026-09-29 20:55:30,563 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "();\\n    state = \'running"}\r\n\r\n'
+2026-09-29 20:55:30,696 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n    acc = 0"}\r\n\r\n'
+2026-09-29 20:55:30,701 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n    showOverlay();\\n"}\r\n\r\n'
+2026-09-29 20:55:30,702 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  }\\n\\n  function toggleP"}\r\n\r\n'
+2026-09-29 20:55:30,702 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ause(){\\n    if(state ==="}\r\n\r\n'
+2026-09-29 20:55:30,753 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'running\')"}\r\n\r\n'
+2026-09-29 20:55:30,754 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "{ state = \'paused"}\r\n\r\n'
+2026-09-29 20:55:30,756 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\'; showOverlay(); }\\n"}\r\n\r\n'
+2026-09-29 20:55:30,756 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    else if(state === \'paused\'){ state ="}\r\n\r\n'
+2026-09-29 20:55:30,846 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'running\'; acc = "}\r\n\r\n'
+2026-09-29 20:55:30,847 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0; showOverlay();"}\r\n\r\n'
+2026-09-29 20:55:30,847 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n    else { startGame"}\r\n\r\n'
+2026-09-29 20:55:30,848 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(); }\\n  }\\n\\n  ov"}\r\n\r\n'
+2026-09-29 20:55:30,936 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Btn.addEventListener(\'click\', function"}\r\n\r\n'
+2026-09-29 20:55:30,937 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(){\\n    if(state === \'"}\r\n\r\n'
+2026-09-29 20:55:30,937 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "paused\'){ state"}\r\n\r\n'
+2026-09-29 20:55:30,938 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = \'running\'; acc ="}\r\n\r\n'
+2026-09-29 20:55:31,029 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 0; showOverlay"}\r\n\r\n'
+2026-09-29 20:55:31,030 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(); }\\n    else { start"}\r\n\r\n'
+2026-09-29 20:55:31,030 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Game(); }\\n  });\\n\\n "}\r\n\r\n'
+2026-09-29 20:55:31,030 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var KEYS = {\\n   "}\r\n\r\n'
+2026-09-29 20:55:31,083 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " arrowup:\'up\', w"}\r\n\r\n'
+2026-09-29 20:55:31,083 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":\'up\',\\n    arrowdown"}\r\n\r\n'
+2026-09-29 20:55:31,084 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":\'down\', s:\'down"}\r\n\r\n'
+2026-09-29 20:55:31,084 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\',\\n    arrowleft:\'left"}\r\n\r\n'
+2026-09-29 20:55:31,160 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\', a:\'left\',\\n   "}\r\n\r\n'
+2026-09-29 20:55:31,161 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " arrowright:\'right\', d"}\r\n\r\n'
+2026-09-29 20:55:31,161 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ":\'right\'\\n  };\\n\\n "}\r\n\r\n'
+2026-09-29 20:55:31,162 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " window.addEventListener(\'keydown\',"}\r\n\r\n'
+2026-09-29 20:55:31,232 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " function(e){\\n    var k"}\r\n\r\n'
+2026-09-29 20:55:31,233 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = (e.key || \'\'"}\r\n\r\n'
+2026-09-29 20:55:31,235 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ").toLowerCase();\\n    if"}\r\n\r\n'
+2026-09-29 20:55:31,236 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(KEYS[k]){\\n     "}\r\n\r\n'
+2026-09-29 20:55:31,339 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " e.preventDefault();\\n      if(state"}\r\n\r\n'
+2026-09-29 20:55:31,340 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " === \'idle\' ||"}\r\n\r\n'
+2026-09-29 20:55:31,340 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " state === \'over\'){\\n       "}\r\n\r\n'
+2026-09-29 20:55:31,340 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " startGame();\\n      } else"}\r\n\r\n'
+2026-09-29 20:55:31,384 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " if(state === \'paused"}\r\n\r\n'
+2026-09-29 20:55:31,385 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\'){\\n        state = \'running"}\r\n\r\n'
+2026-09-29 20:55:31,385 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n        acc ="}\r\n\r\n'
+2026-09-29 20:55:31,386 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 0;\\n        showOver"}\r\n\r\n'
+2026-09-29 20:55:31,447 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "lay();\\n      }\\n      var"}\r\n\r\n'
+2026-09-29 20:55:31,448 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " d = DIR[KEYS"}\r\n\r\n'
+2026-09-29 20:55:31,448 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "[k]];\\n      if"}\r\n\r\n'
+2026-09-29 20:55:31,448 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(d"}\r\n\r\n'
+2026-09-29 20:55:31,550 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ")"}\r\n\r\n'
+2026-09-29 20:55:31,550 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " setDir(d.x, d"}\r\n\r\n'
+2026-09-29 20:55:31,551 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".y);\\n      return;\\n   "}\r\n\r\n'
+2026-09-29 20:55:31,551 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n    if(k"}\r\n\r\n'
+2026-09-29 20:55:31,624 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " === \' \' || k"}\r\n\r\n'
+2026-09-29 20:55:31,625 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " === \'spacebar\' ||"}\r\n\r\n'
+2026-09-29 20:55:31,625 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " e.code === \'Space\'){\\n"}\r\n\r\n'
+2026-09-29 20:55:31,626 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      e.preventDefault();\\n      toggle"}\r\n\r\n'
+2026-09-29 20:55:31,690 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Pause();\\n    }\\n "}\r\n\r\n'
+2026-09-29 20:55:31,690 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }, {pass"}\r\n\r\n'
+2026-09-29 20:55:31,691 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ive:false});\\n\\n  cv"}\r\n\r\n'
+2026-09-29 20:55:31,692 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".addEventListener(\'pointermove\', function"}\r\n\r\n'
+2026-09-29 20:55:31,767 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(e){\\n    if(state !=="}\r\n\r\n'
+2026-09-29 20:55:31,768 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'running\') return"}\r\n\r\n'
+2026-09-29 20:55:31,768 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n    var r = cv"}\r\n\r\n'
+2026-09-29 20:55:31,769 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".getBoundingClientRect();\\n"}\r\n\r\n'
+2026-09-29 20:55:32,366 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    var mx = (e"}\r\n\r\n'
+2026-09-29 20:55:32,366 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".clientX - r.left)"}\r\n\r\n'
+2026-09-29 20:55:32,366 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " / r.width * SIZE;\\n"}\r\n\r\n'
+2026-09-29 20:55:32,367 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    var my = (e.clientY - r.top)"}\r\n\r\n'
+2026-09-29 20:55:32,390 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " / r.height * SIZE;\\n    var h = snake["}\r\n\r\n'
+2026-09-29 20:55:32,391 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0];\\n    var cx = h.x * CELL + CELL"}\r\n\r\n'
+2026-09-29 20:55:32,391 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " / 2;\\n    var"}\r\n\r\n'
+2026-09-29 20:55:32,392 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " cy = h.y * CELL"}\r\n\r\n'
+2026-09-29 20:55:32,476 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + CELL / 2;\\n"}\r\n\r\n'
+2026-09-29 20:55:32,476 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    var dx = mx -"}\r\n\r\n'
+2026-09-29 20:55:32,477 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " cx;\\n    var dy ="}\r\n\r\n'
+2026-09-29 20:55:32,477 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " my - cy;\\n    if"}\r\n\r\n'
+2026-09-29 20:55:32,560 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(Math.sqrt(dx *"}\r\n\r\n'
+2026-09-29 20:55:32,560 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " dx + dy * dy)"}\r\n\r\n'
+2026-09-29 20:55:32,560 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " < CELL * 1."}\r\n\r\n'
+2026-09-29 20:55:32,561 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "4) return;\\n    if"}\r\n\r\n'
+2026-09-29 20:55:32,630 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(Math.abs(dx) >"}\r\n\r\n'
+2026-09-29 20:55:32,630 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " Math.abs(dy)) set"}\r\n\r\n'
+2026-09-29 20:55:32,631 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Dir(dx >"}\r\n\r\n'
+2026-09-29 20:55:32,631 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 0 ? 1 :"}\r\n\r\n'
+2026-09-29 20:55:32,711 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " -1, 0);\\n"}\r\n\r\n'
+2026-09-29 20:55:32,712 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    else setDir(0"}\r\n\r\n'
+2026-09-29 20:55:32,712 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", dy > 0 ?"}\r\n\r\n'
+2026-09-29 20:55:32,713 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 1 : -1);\\n"}\r\n\r\n'
+2026-09-29 20:55:32,810 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  });\\n\\n  var padButtons"}\r\n\r\n'
+2026-09-29 20:55:32,810 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = document.querySelectorAll(\'["}\r\n\r\n'
+2026-09-29 20:55:32,811 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "data-dir]\');\\n "}\r\n\r\n'
+2026-09-29 20:55:32,811 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " for(var bi"}\r\n\r\n'
+2026-09-29 20:55:32,887 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = 0; bi <"}\r\n\r\n'
+2026-09-29 20:55:32,887 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " padButtons.length; bi++){\\n"}\r\n\r\n'
+2026-09-29 20:55:32,887 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    (function(btn){\\n"}\r\n\r\n'
+2026-09-29 20:55:32,888 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      btn.addEventListener(\'pointerdown"}\r\n\r\n'
+2026-09-29 20:55:32,967 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\', function(e){\\n        e"}\r\n\r\n'
+2026-09-29 20:55:32,967 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".preventDefault();\\n        if(state ==="}\r\n\r\n'
+2026-09-29 20:55:32,968 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'idle\' || state"}\r\n\r\n'
+2026-09-29 20:55:32,968 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " === \'over\'){\\n          start"}\r\n\r\n'
+2026-09-29 20:55:33,072 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Game();\\n        } else if"}\r\n\r\n'
+2026-09-29 20:55:33,072 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(state === \'paused\'){\\n"}\r\n\r\n'
+2026-09-29 20:55:33,073 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "          state = \'running\';\\n"}\r\n\r\n'
+2026-09-29 20:55:33,074 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "          acc = 0;\\n"}\r\n\r\n'
+2026-09-29 20:55:33,156 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "          showOverlay();\\n       "}\r\n\r\n'
+2026-09-29 20:55:33,156 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " }\\n        var d = DIR"}\r\n\r\n'
+2026-09-29 20:55:33,157 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "[btn.getAttribute(\'data"}\r\n\r\n'
+2026-09-29 20:55:33,157 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "-dir\')];\\n        if"}\r\n\r\n'
+2026-09-29 20:55:33,222 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(d) setDir(d.x"}\r\n\r\n'
+2026-09-29 20:55:33,222 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", d.y);\\n      });\\n"}\r\n\r\n'
+2026-09-29 20:55:33,223 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    })(padButtons"}\r\n\r\n'
+2026-09-29 20:55:33,223 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "[bi]);\\n  }\\n\\n "}\r\n\r\n'
+2026-09-29 20:55:33,294 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " function roundRect(x, y"}\r\n\r\n'
+2026-09-29 20:55:33,295 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", w, h, r"}\r\n\r\n'
+2026-09-29 20:55:33,296 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "){\\n    r = Math.min"}\r\n\r\n'
+2026-09-29 20:55:33,296 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(r, w / 2"}\r\n\r\n'
+2026-09-29 20:55:33,380 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", h / 2);\\n"}\r\n\r\n'
+2026-09-29 20:55:33,380 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    ctx.beginPath();\\n   "}\r\n\r\n'
+2026-09-29 20:55:33,381 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.moveTo(x + r"}\r\n\r\n'
+2026-09-29 20:55:33,381 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", y);\\n    ctx.line"}\r\n\r\n'
+2026-09-29 20:55:33,467 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "To(x + w - r"}\r\n\r\n'
+2026-09-29 20:55:33,468 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", y);\\n    ctx."}\r\n\r\n'
+2026-09-29 20:55:33,468 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "quadraticCurveTo(x"}\r\n\r\n'
+2026-09-29 20:55:33,469 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + w, y, x"}\r\n\r\n'
+2026-09-29 20:55:33,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + w, y + r"}\r\n\r\n'
+2026-09-29 20:55:33,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n    ctx.lineTo(x"}\r\n\r\n'
+2026-09-29 20:55:33,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + w, y + h"}\r\n\r\n'
+2026-09-29 20:55:33,504 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " - r);\\n    ctx."}\r\n\r\n'
+2026-09-29 20:55:33,596 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "quadraticCurveTo(x"}\r\n\r\n'
+2026-09-29 20:55:33,596 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + w, y + h"}\r\n\r\n'
+2026-09-29 20:55:33,600 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", x + w - r"}\r\n\r\n'
+2026-09-29 20:55:33,600 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", y + h);\\n   "}\r\n\r\n'
+2026-09-29 20:55:33,675 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.lineTo(x + r"}\r\n\r\n'
+2026-09-29 20:55:33,676 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", y + h);\\n   "}\r\n\r\n'
+2026-09-29 20:55:33,676 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.quadraticCurve"}\r\n\r\n'
+2026-09-29 20:55:33,676 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "To(x, y + h"}\r\n\r\n'
+2026-09-29 20:55:33,737 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", x, y + h"}\r\n\r\n'
+2026-09-29 20:55:33,737 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " - r);\\n    ctx.line"}\r\n\r\n'
+2026-09-29 20:55:33,738 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "To(x, y + r"}\r\n\r\n'
+2026-09-29 20:55:33,738 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n    ctx.quadratic"}\r\n\r\n'
+2026-09-29 20:55:33,840 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "CurveTo(x, y"}\r\n\r\n'
+2026-09-29 20:55:33,841 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", x + r, y"}\r\n\r\n'
+2026-09-29 20:55:33,841 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n    ctx.closePath();\\n"}\r\n\r\n'
+2026-09-29 20:55:33,842 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  }\\n\\n  function draw("}\r\n\r\n'
+2026-09-29 20:55:33,935 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "now){\\n    var"}\r\n\r\n'
+2026-09-29 20:55:33,936 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " bg = ctx.createLinearG"}\r\n\r\n'
+2026-09-29 20:55:33,936 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "radient(0, 0"}\r\n\r\n'
+2026-09-29 20:55:33,936 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", SIZE, SIZE);\\n   "}\r\n\r\n'
+2026-09-29 20:55:34,024 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " bg.addColorStop(0"}\r\n\r\n'
+2026-09-29 20:55:34,024 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", \'#0c152"}\r\n\r\n'
+2026-09-29 20:55:34,025 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "6\');\\n    bg.addColor"}\r\n\r\n'
+2026-09-29 20:55:34,026 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Stop(1, \'#080"}\r\n\r\n'
+2026-09-29 20:55:34,076 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "e1a\');\\n    ctx"}\r\n\r\n'
+2026-09-29 20:55:34,076 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".fillStyle = bg;\\n   "}\r\n\r\n'
+2026-09-29 20:55:34,077 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.fillRect(0,"}\r\n\r\n'
+2026-09-29 20:55:34,077 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 0, SIZE, SIZE"}\r\n\r\n'
+2026-09-29 20:55:34,149 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n\\n    ctx.strokeStyle"}\r\n\r\n'
+2026-09-29 20:55:34,149 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = \'rgba(120"}\r\n\r\n'
+2026-09-29 20:55:34,150 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",200,255,0"}\r\n\r\n'
+2026-09-29 20:55:34,150 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".05)\';\\n    ctx"}\r\n\r\n'
+2026-09-29 20:55:34,238 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".lineWidth = 1;\\n"}\r\n\r\n'
+2026-09-29 20:55:34,239 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    ctx.beginPath();\\n   "}\r\n\r\n'
+2026-09-29 20:55:34,239 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " for(var i = 1"}\r\n\r\n'
+2026-09-29 20:55:34,240 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "; i < N; i"}\r\n\r\n'
+2026-09-29 20:55:34,309 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "++){\\n      var p = i"}\r\n\r\n'
+2026-09-29 20:55:34,309 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " * CELL + 0."}\r\n\r\n'
+2026-09-29 20:55:34,309 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "5;\\n      ctx.moveTo"}\r\n\r\n'
+2026-09-29 20:55:34,310 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(p, 0);\\n     "}\r\n\r\n'
+2026-09-29 20:55:34,397 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.lineTo(p, SIZE"}\r\n\r\n'
+2026-09-29 20:55:34,397 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n      ctx.moveTo("}\r\n\r\n'
+2026-09-29 20:55:34,398 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0, p);\\n      ctx"}\r\n\r\n'
+2026-09-29 20:55:34,399 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".lineTo(SIZE, p"}\r\n\r\n'
+2026-09-29 20:55:34,489 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n    }\\n    ctx.st"}\r\n\r\n'
+2026-09-29 20:55:34,490 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "roke();\\n\\n    if(food"}\r\n\r\n'
+2026-09-29 20:55:34,491 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "){\\n      var fx = food"}\r\n\r\n'
+2026-09-29 20:55:34,491 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".x * CELL + CELL /"}\r\n\r\n'
+2026-09-29 20:55:34,586 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 2;\\n      var fy"}\r\n\r\n'
+2026-09-29 20:55:34,587 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = food.y * CELL +"}\r\n\r\n'
+2026-09-29 20:55:34,587 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " CELL / 2;\\n     "}\r\n\r\n'
+2026-09-29 20:55:34,587 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var pulse = 1 +"}\r\n\r\n'
+2026-09-29 20:55:34,670 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " Math.sin(now / "}\r\n\r\n'
+2026-09-29 20:55:34,671 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "200) * 0."}\r\n\r\n'
+2026-09-29 20:55:34,672 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "12;\\n      ctx.save();\\n"}\r\n\r\n'
+2026-09-29 20:55:34,672 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      ctx.shadowColor ="}\r\n\r\n'
+2026-09-29 20:55:34,744 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'#ff4d6d"}\r\n\r\n'
+2026-09-29 20:55:34,745 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\';\\n      ctx.shadowBl"}\r\n\r\n'
+2026-09-29 20:55:34,745 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ur = 22;\\n     "}\r\n\r\n'
+2026-09-29 20:55:34,746 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var g = ctx.createRad"}\r\n\r\n'
+2026-09-29 20:55:34,822 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ialGradient(fx -"}\r\n\r\n'
+2026-09-29 20:55:34,822 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " CELL * 0.12"}\r\n\r\n'
+2026-09-29 20:55:34,823 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", fy - CELL * "}\r\n\r\n'
+2026-09-29 20:55:34,824 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0.12, 1"}\r\n\r\n'
+2026-09-29 20:55:34,901 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", fx, fy, CELL"}\r\n\r\n'
+2026-09-29 20:55:34,901 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " * 0.44 *"}\r\n\r\n'
+2026-09-29 20:55:34,902 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " pulse);\\n      g.addColor"}\r\n\r\n'
+2026-09-29 20:55:34,903 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Stop(0, \'#fff"}\r\n\r\n'
+2026-09-29 20:55:34,981 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1f5\');\\n      g"}\r\n\r\n'
+2026-09-29 20:55:34,981 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".addColorStop(0."}\r\n\r\n'
+2026-09-29 20:55:34,981 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "35, \'#ff6b"}\r\n\r\n'
+2026-09-29 20:55:34,982 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "8a\');\\n      g.add"}\r\n\r\n'
+2026-09-29 20:55:35,050 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ColorStop(1, \'#"}\r\n\r\n'
+2026-09-29 20:55:35,051 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "c1123c\');\\n     "}\r\n\r\n'
+2026-09-29 20:55:35,051 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.fillStyle = g;\\n"}\r\n\r\n'
+2026-09-29 20:55:35,051 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      ctx.beginPath();\\n     "}\r\n\r\n'
+2026-09-29 20:55:35,127 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.arc(fx,"}\r\n\r\n'
+2026-09-29 20:55:35,128 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " fy, CELL * 0"}\r\n\r\n'
+2026-09-29 20:55:35,128 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".32 * pulse, "}\r\n\r\n'
+2026-09-29 20:55:35,129 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "0, Math.PI *"}\r\n\r\n'
+2026-09-29 20:55:35,205 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 2);\\n      ctx.fill"}\r\n\r\n'
+2026-09-29 20:55:35,205 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "();\\n      ctx.restore();\\n"}\r\n\r\n'
+2026-09-29 20:55:35,206 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    }\\n\\n    for(var"}\r\n\r\n'
+2026-09-29 20:55:35,206 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " s"}\r\n\r\n'
+2026-09-29 20:55:35,292 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = snake.length - 1"}\r\n\r\n'
+2026-09-29 20:55:35,292 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "; s >= 0;"}\r\n\r\n'
+2026-09-29 20:55:35,293 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " s--){\\n      var seg"}\r\n\r\n'
+2026-09-29 20:55:35,293 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = snake[s];\\n      var"}\r\n\r\n'
+2026-09-29 20:55:35,360 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " t = snake.length > "}\r\n\r\n'
+2026-09-29 20:55:35,360 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1 ? s / (sn"}\r\n\r\n'
+2026-09-29 20:55:35,360 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "ake.length - 1)"}\r\n\r\n'
+2026-09-29 20:55:35,361 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " : 0;\\n      var"}\r\n\r\n'
+2026-09-29 20:55:35,480 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " hue = 152"}\r\n\r\n'
+2026-09-29 20:55:35,480 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + t * 46;\\n"}\r\n\r\n'
+2026-09-29 20:55:35,481 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      var lum = 56"}\r\n\r\n'
+2026-09-29 20:55:35,481 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " - t * 14;\\n"}\r\n\r\n'
+2026-09-29 20:55:35,561 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      ctx.save();\\n      if"}\r\n\r\n'
+2026-09-29 20:55:35,562 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(s === 0){\\n       "}\r\n\r\n'
+2026-09-29 20:55:35,562 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.shadowColor = \'"}\r\n\r\n'
+2026-09-29 20:55:35,563 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "rgba(45"}\r\n\r\n'
+2026-09-29 20:55:35,635 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ",255,170,0"}\r\n\r\n'
+2026-09-29 20:55:35,635 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".75)\';\\n        ctx"}\r\n\r\n'
+2026-09-29 20:55:35,636 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".shadowBlur = "}\r\n\r\n'
+2026-09-29 20:55:35,636 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "18;\\n      }\\n      ctx"}\r\n\r\n'
+2026-09-29 20:55:35,713 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".fillStyle = \'hsl"}\r\n\r\n'
+2026-09-29 20:55:35,713 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(\' + hue + \',85"}\r\n\r\n'
+2026-09-29 20:55:35,714 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "%,\' + lum + \'"}\r\n\r\n'
+2026-09-29 20:55:35,714 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "%)\';\\n      var pad ="}\r\n\r\n'
+2026-09-29 20:55:35,808 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " s === 0 ? "}\r\n\r\n'
+2026-09-29 20:55:35,808 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "1.5 : 2"}\r\n\r\n'
+2026-09-29 20:55:35,808 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".5;\\n      roundRect"}\r\n\r\n'
+2026-09-29 20:55:35,809 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(seg.x * CELL +"}\r\n\r\n'
+2026-09-29 20:55:35,898 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " pad, seg.y * CELL"}\r\n\r\n'
+2026-09-29 20:55:35,898 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + pad, CELL - pad"}\r\n\r\n'
+2026-09-29 20:55:35,899 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " * 2, CELL -"}\r\n\r\n'
+2026-09-29 20:55:35,899 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " pad * 2, s"}\r\n\r\n'
+2026-09-29 20:55:35,978 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " === 0 ? 10"}\r\n\r\n'
+2026-09-29 20:55:35,978 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " : 8);\\n      ctx"}\r\n\r\n'
+2026-09-29 20:55:35,980 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".fill();\\n      ctx.restore"}\r\n\r\n'
+2026-09-29 20:55:35,980 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "();\\n    }\\n\\n    if(s"}\r\n\r\n'
+2026-09-29 20:55:36,049 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "nake &&"}\r\n\r\n'
+2026-09-29 20:55:36,049 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " snake.length){\\n      var h"}\r\n\r\n'
+2026-09-29 20:55:36,050 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = snake[0];\\n     "}\r\n\r\n'
+2026-09-29 20:55:36,050 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var h"}\r\n\r\n'
+2026-09-29 20:55:36,132 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "x = h.x * CELL"}\r\n\r\n'
+2026-09-29 20:55:36,132 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + CELL / 2;\\n"}\r\n\r\n'
+2026-09-29 20:55:36,133 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      var hy = h.y"}\r\n\r\n'
+2026-09-29 20:55:36,133 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " * CELL + CELL / "}\r\n\r\n'
+2026-09-29 20:55:36,262 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "2;\\n      var f"}\r\n\r\n'
+2026-09-29 20:55:36,262 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "wx = dir.x;\\n"}\r\n\r\n'
+2026-09-29 20:55:36,263 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      var fwy = dir"}\r\n\r\n'
+2026-09-29 20:55:36,263 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".y;\\n      var px"}\r\n\r\n'
+2026-09-29 20:55:36,326 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ="}\r\n\r\n'
+2026-09-29 20:55:36,327 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " -fwy;\\n      var"}\r\n\r\n'
+2026-09-29 20:55:36,327 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " py = fwx;\\n     "}\r\n\r\n'
+2026-09-29 20:55:36,328 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var eo = CELL *"}\r\n\r\n'
+2026-09-29 20:55:36,433 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 0.18"}\r\n\r\n'
+2026-09-29 20:55:36,434 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n      var so = CELL"}\r\n\r\n'
+2026-09-29 20:55:36,434 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " * 0.17;\\n"}\r\n\r\n'
+2026-09-29 20:55:36,434 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      ctx.fillStyle = \'#"}\r\n\r\n'
+2026-09-29 20:55:36,502 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "04140d\';\\n      var"}\r\n\r\n'
+2026-09-29 20:55:36,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " eyes = [\\n        { x"}\r\n\r\n'
+2026-09-29 20:55:36,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ": hx + f"}\r\n\r\n'
+2026-09-29 20:55:36,503 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "wx * eo + px"}\r\n\r\n'
+2026-09-29 20:55:36,614 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " * so, y: hy"}\r\n\r\n'
+2026-09-29 20:55:36,615 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + fwy * eo"}\r\n\r\n'
+2026-09-29 20:55:36,615 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " + py * so },\\n       "}\r\n\r\n'
+2026-09-29 20:55:36,615 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " { x: hx +"}\r\n\r\n'
+2026-09-29 20:55:36,728 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " fwx * eo -"}\r\n\r\n'
+2026-09-29 20:55:36,728 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " px * so, y:"}\r\n\r\n'
+2026-09-29 20:55:36,729 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " hy + fwy * e"}\r\n\r\n'
+2026-09-29 20:55:36,729 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "o - py * so }\\n"}\r\n\r\n'
+2026-09-29 20:55:36,790 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      ];\\n      for(var k"}\r\n\r\n'
+2026-09-29 20:55:36,791 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = 0; k <"}\r\n\r\n'
+2026-09-29 20:55:36,791 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 2; k++){\\n       "}\r\n\r\n'
+2026-09-29 20:55:36,792 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " ctx.beginPath();\\n        ctx"}\r\n\r\n'
+2026-09-29 20:55:36,953 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".arc(eyes[k]."}\r\n\r\n'
+2026-09-29 20:55:36,954 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "x, eyes[k].y"}\r\n\r\n'
+2026-09-29 20:55:36,955 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", CELL * 0."}\r\n\r\n'
+2026-09-29 20:55:36,956 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "09, 0, Math"}\r\n\r\n'
+2026-09-29 20:55:36,981 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".PI * 2);\\n"}\r\n\r\n'
+2026-09-29 20:55:36,982 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "        ctx.fill();\\n      }\\n"}\r\n\r\n'
+2026-09-29 20:55:36,983 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    }\\n  }\\n\\n  function"}\r\n\r\n'
+2026-09-29 20:55:36,983 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " loop(now){\\n    request"}\r\n\r\n'
+2026-09-29 20:55:37,009 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "AnimationFrame(loop);\\n   "}\r\n\r\n'
+2026-09-29 20:55:37,010 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " var dt = Math.min("}\r\n\r\n'
+2026-09-29 20:55:37,010 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "now - last, 120"}\r\n\r\n'
+2026-09-29 20:55:37,011 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ");\\n    last = now;\\n"}\r\n\r\n'
+2026-09-29 20:55:37,086 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "    if(state === \'running"}\r\n\r\n'
+2026-09-29 20:55:37,086 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\'){\\n      acc += dt;\\n"}\r\n\r\n'
+2026-09-29 20:55:37,087 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "      var guard = 0"}\r\n\r\n'
+2026-09-29 20:55:37,088 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n      while(acc >="}\r\n\r\n'
+2026-09-29 20:55:37,164 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " stepTime && guard <"}\r\n\r\n'
+2026-09-29 20:55:37,165 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " 6){\\n        guard"}\r\n\r\n'
+2026-09-29 20:55:37,166 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "++;\\n        acc -= stepTime"}\r\n\r\n'
+2026-09-29 20:55:37,166 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n        step();\\n        if"}\r\n\r\n'
+2026-09-29 20:55:37,217 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "(state !== \'running\') break"}\r\n\r\n'
+2026-09-29 20:55:37,218 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ";\\n      }\\n    }\\n   "}\r\n\r\n'
+2026-09-29 20:55:37,218 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " draw(now);\\n  }\\n\\n"}\r\n\r\n'
+2026-09-29 20:55:37,218 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "  reset();\\n  state ="}\r\n\r\n'
+2026-09-29 20:55:37,291 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \'idle\';\\n  acc"}\r\n\r\n'
+2026-09-29 20:55:37,292 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = 0;\\n  show"}\r\n\r\n'
+2026-09-29 20:55:37,293 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Overlay();\\n  requestAnimation"}\r\n\r\n'
+2026-09-29 20:55:37,293 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Frame(loop);\\n})();\\n"}\r\n\r\n'
+2026-09-29 20:55:37,370 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "</script>\\n</body>\\n"}\r\n\r\n'
+2026-09-29 20:55:37,371 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "</html>\\n```\\n### "}\r\n\r\n'
+2026-09-29 20:55:37,371 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u73a9\\u6cd5\\u4e0e\\u4ea4\\u4e92"}\r\n\r\n'
+2026-09-29 20:55:37,371 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8bbe\\u8ba1"}\r\n\r\n'
+2026-09-29 20:55:37,375 - sse_starlette.sse - DEBUG - ping: b': ping - 2026-09-30 03:55:37.375188+00:00\r\n\r\n'
+2026-09-29 20:55:37,466 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\n\\n\\u6253\\u5f00\\u9875\\u9762"}\r\n\r\n'
+2026-09-29 20:55:37,467 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u4f1a"}\r\n\r\n'
+2026-09-29 20:55:37,467 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u770b\\u5230\\u5c45\\u4e2d"}\r\n\r\n'
+2026-09-29 20:55:37,468 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u68cb\\u76d8"}\r\n\r\n'
+2026-09-29 20:55:37,505 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u548c\\u521d\\u59cb\\u906e"}\r\n\r\n'
+2026-09-29 20:55:37,506 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7f69\\uff0c\\u70b9\\u51fb\\u201c"}\r\n\r\n'
+2026-09-29 20:55:37,506 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5f00\\u59cb\\u6e38\\u620f\\u201d\\u6216\\u76f4\\u63a5"}\r\n\r\n'
+2026-09-29 20:55:37,507 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6309\\u65b9\\u5411\\u952e\\u8fdb\\u5165\\u6e38\\u620f\\uff0c"}\r\n\r\n'
+2026-09-29 20:55:37,576 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u952e\\u76d8"}\r\n\r\n'
+2026-09-29 20:55:37,577 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u3001"}\r\n\r\n'
+2026-09-29 20:55:37,577 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u9f20\\u6807\\u548c\\u5c4f\\u5e55"}\r\n\r\n'
+2026-09-29 20:55:37,579 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u65b9\\u5411\\u952e"}\r\n\r\n'
+2026-09-29 20:55:37,658 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u90fd\\u80fd\\u64cd\\u4f5c\\uff0c\\u53cd\\u9988"}\r\n\r\n'
+2026-09-29 20:55:37,658 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5f88\\u53ca\\u65f6"}\r\n\r\n'
+2026-09-29 20:55:37,659 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u3002\\n\\n**\\u64cd\\u4f5c\\u65b9\\u5f0f**\\n"}\r\n\r\n'
+2026-09-29 20:55:37,659 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "- \\u952e\\u76d8\\u652f\\u6301\\u65b9\\u5411"}\r\n\r\n'
+2026-09-29 20:55:37,747 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u952e\\u548cWASD\\uff0c"}\r\n\r\n'
+2026-09-29 20:55:37,747 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7a7a\\u683c\\u952e\\u6682\\u505c"}\r\n\r\n'
+2026-09-29 20:55:37,747 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "/"}\r\n\r\n'
+2026-09-29 20:55:37,748 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7ee7\\u7eed\\u3002\\n- \\u9f20\\u6807"}\r\n\r\n'
+2026-09-29 20:55:37,829 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5728\\u68cb\\u76d8\\u4e0a\\u79fb\\u52a8"}\r\n\r\n'
+2026-09-29 20:55:37,830 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\uff0c\\u4f1a\\u671d\\u5149\\u6807\\u6240\\u5728"}\r\n\r\n'
+2026-09-29 20:55:37,830 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7684\\u5927"}\r\n\r\n'
+2026-09-29 20:55:37,831 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u81f4\\u65b9\\u5411\\u8f6c\\u5411\\u3002\\n"}\r\n\r\n'
+2026-09-29 20:55:37,876 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "- \\u5c4f\\u5e55\\u4e0b\\u65b9\\u7684\\u65b9\\u5411\\u6309\\u94ae"}\r\n\r\n'
+2026-09-29 20:55:37,877 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u9002\\u5408"}\r\n\r\n'
+2026-09-29 20:55:37,877 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u89e6\\u5c4f\\u6216"}\r\n\r\n'
+2026-09-29 20:55:37,877 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u9f20\\u6807\\u70b9\\u51fb"}\r\n\r\n'
+2026-09-29 20:55:37,990 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u3002\\n  \\n"}\r\n\r\n'
+2026-09-29 20:55:37,991 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "**\\u6e38\\u620f"}\r\n\r\n'
+2026-09-29 20:55:37,991 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u673a\\u5236**\\n- \\u86c7"}\r\n\r\n'
+2026-09-29 20:55:37,992 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5403\\u5230\\u98df\\u7269\\u540e"}\r\n\r\n'
+2026-09-29 20:55:38,067 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5f97\\u5206+"}\r\n\r\n'
+2026-09-29 20:55:38,068 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "10\\u3001"}\r\n\r\n'
+2026-09-29 20:55:38,069 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u957f\\u5ea6+1\\uff0c\\u5e76\\u4e14"}\r\n\r\n'
+2026-09-29 20:55:38,069 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u79fb\\u52a8"}\r\n\r\n'
+2026-09-29 20:55:38,116 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u901f\\u5ea6\\u4f1a\\u968f\\u7740"}\r\n\r\n'
+2026-09-29 20:55:38,116 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5206\\u6570\\u63d0\\u5347\\u9010\\u6e10"}\r\n\r\n'
+2026-09-29 20:55:38,117 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u52a0\\u5feb\\uff0c\\u6700\\u9ad8\\u901f\\u5ea6\\u6709"}\r\n\r\n'
+2026-09-29 20:55:38,117 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u4e0a\\u9650\\u3002\\n- \\u649e"}\r\n\r\n'
+2026-09-29 20:55:38,202 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5230\\u5899\\u58c1\\u6216\\u81ea\\u5df1\\u7684\\u8eab\\u4f53\\u4f1a\\u7ed3\\u675f"}\r\n\r\n'
+2026-09-29 20:55:38,203 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6e38\\u620f\\uff0c\\u6700\\u9ad8"}\r\n\r\n'
+2026-09-29 20:55:38,203 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5206\\u4f1a\\u81ea\\u52a8\\u4fdd\\u5b58\\u5728\\u6d4f\\u89c8\\u5668\\u91cc\\uff0c"}\r\n\r\n'
+2026-09-29 20:55:38,203 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u4e0b\\u6b21\\u6253\\u5f00\\u4ecd\\u7136"}\r\n\r\n'
+2026-09-29 20:55:38,256 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u4fdd\\u7559\\u3002\\n  \\n"}\r\n\r\n'
+2026-09-29 20:55:38,257 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "**\\u89c6\\u89c9\\u53cd\\u9988**\\n- "}\r\n\r\n'
+2026-09-29 20:55:38,257 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u98df\\u7269"}\r\n\r\n'
+2026-09-29 20:55:38,258 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6709\\u547c\\u5438"}\r\n\r\n'
+2026-09-29 20:55:38,339 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u822c\\u7684"}\r\n\r\n'
+2026-09-29 20:55:38,340 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8109\\u52a8\\u6548\\u679c"}\r\n\r\n'
+2026-09-29 20:55:38,340 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\uff0c"}\r\n\r\n'
+2026-09-29 20:55:38,340 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u86c7\\u5934"}\r\n\r\n'
+2026-09-29 20:55:38,419 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6709\\u53d1\\u5149\\u548c"}\r\n\r\n'
+2026-09-29 20:55:38,419 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u773c\\u775b\\u88c5\\u9970"}\r\n\r\n'
+2026-09-29 20:55:38,420 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\uff0c\\u86c7"}\r\n\r\n'
+2026-09-29 20:55:38,420 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u8eab\\u989c\\u8272\\u4ece"}\r\n\r\n'
+2026-09-29 20:55:38,485 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5934\\u90e8\\u5230\\u5c3e\\u90e8\\u6709"}\r\n\r\n'
+2026-09-29 20:55:38,486 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u6e10\\u53d8\\u3002\\n- \\u9876\\u90e8\\u5b9e\\u65f6"}\r\n\r\n'
+2026-09-29 20:55:38,486 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u663e\\u793a\\u5206\\u6570\\u3001\\u6700\\u9ad8\\u5206\\u548c"}\r\n\r\n'
+2026-09-29 20:55:38,487 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u957f\\u5ea6\\uff0c\\u6682\\u505c\\u548c"}\r\n\r\n'
+2026-09-29 20:55:38,579 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7ed3\\u675f\\u90fd\\u6709\\u6e05\\u6670\\u7684"}\r\n\r\n'
+2026-09-29 20:55:38,580 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u906e\\u7f69\\u63d0\\u793a\\u3002\\n---\\n\\n**"}\r\n\r\n'
+2026-09-29 20:55:38,580 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u4f18\\u5316\\u5efa\\u8bae\\uff1a** \\u60a8"}\r\n\r\n'
+2026-09-29 20:55:38,581 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u53ef\\u4ee5\\u5728\\u4ee3\\u7801\\u5f00\\u5934\\u7684 `reset"}\r\n\r\n'
+2026-09-29 20:55:38,695 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "()`"}\r\n\r\n'
+2026-09-29 20:55:38,696 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \\u51fd\\u6570\\u91cc"}\r\n\r\n'
+2026-09-29 20:55:38,696 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u627e\\u5230 `stepTime"}\r\n\r\n'
+2026-09-29 20:55:38,696 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " = 140`\\uff0c\\u8c03"}\r\n\r\n'
+2026-09-29 20:55:38,827 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5c0f\\u8fd9\\u4e2a\\u6570\\u503c"}\r\n\r\n'
+2026-09-29 20:55:38,828 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u80fd\\u8ba9\\u86c7\\u4e00\\u5f00\\u59cb"}\r\n\r\n'
+2026-09-29 20:55:38,828 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5c31"}\r\n\r\n'
+2026-09-29 20:55:38,829 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u79fb\\u52a8\\u66f4\\u5feb\\uff1b\\u6216\\u8005\\u4fee\\u6539"}\r\n\r\n'
+2026-09-29 20:55:38,919 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " `step"}\r\n\r\n'
+2026-09-29 20:55:38,920 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "Time = Math.max(70"}\r\n\r\n'
+2026-09-29 20:55:38,920 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ", 140 - Math"}\r\n\r\n'
+2026-09-29 20:55:38,921 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ".floor(score / 50"}\r\n\r\n'
+2026-09-29 20:55:38,995 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ") * 10"}\r\n\r\n'
+2026-09-29 20:55:38,996 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": ")` \\u91cc\\u7684 `"}\r\n\r\n'
+2026-09-29 20:55:38,996 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "70` \\u6765\\u8c03\\u6574\\u6700\\u9ad8"}\r\n\r\n'
+2026-09-29 20:55:38,997 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u901f\\u5ea6\\u3002"}\r\n\r\n'
+2026-09-29 20:55:39,078 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u68cb\\u76d8"}\r\n\r\n'
+2026-09-29 20:55:39,078 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5927\\u5c0f\\u7531"}\r\n\r\n'
+2026-09-29 20:55:39,079 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " `N = 20`"}\r\n\r\n'
+2026-09-29 20:55:39,079 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": " \\u63a7\\u5236\\uff0c\\u6539\\u6210"}\r\n\r\n'
+2026-09-29 20:55:39,163 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u66f4\\u5927\\u7684\\u6570\\u5b57"}\r\n\r\n'
+2026-09-29 20:55:39,163 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u5c31\\u80fd\\u5f97\\u5230"}\r\n\r\n'
+2026-09-29 20:55:39,164 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u66f4"}\r\n\r\n'
+2026-09-29 20:55:39,164 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7cbe\\u7ec6"}\r\n\r\n'
+2026-09-29 20:55:39,246 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u7684\\u683c\\u5b50"}\r\n\r\n'
+2026-09-29 20:55:39,248 - sse_starlette.sse - DEBUG - chunk: b'data: {"content": "\\u3002"}\r\n\r\n'
+2026-09-29 20:55:39,249 - httpcore.http11 - DEBUG - response_closed.started
+2026-09-29 20:55:39,249 - httpcore.http11 - DEBUG - response_closed.complete
+2026-09-29 20:55:39,249 - sse_starlette.sse - DEBUG - chunk: b'data: [DONE]\r\n\r\n'
+2026-09-29 20:55:39,250 - sse_starlette.sse - DEBUG - Got event: http.disconnect. Stop streaming.
+2026-09-29 20:55:39,250 - httpcore.http11 - DEBUG - receive_response_body.failed exception=GeneratorExit()
+2026-09-29 20:57:49,986 - main - INFO - === Logging system initialized ===
+2026-09-29 20:57:49,987 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 20:57:49,987 - main - INFO - Log level: DEBUG
+2026-09-29 20:57:49,987 - main - INFO - Log date: 20260929
+2026-09-29 20:57:50,163 - main - INFO - Included router: routers.aihub.router
+2026-09-29 20:57:50,941 - main - INFO - Included router: routers.auth.router
+2026-09-29 20:57:50,944 - main - INFO - Included router: routers.health.router
+2026-09-29 20:57:50,956 - main - INFO - Included router: routers.settings.router
+2026-09-29 20:57:50,977 - main - INFO - Included router: routers.storage.router
+2026-09-29 20:57:50,989 - main - INFO - Included router: routers.user.router
+2026-09-29 20:57:50,990 - main - INFO - === Application startup initiated ===
+2026-09-29 20:57:50,990 - main - INFO - === Application startup completed successfully ===
+2026-09-29 21:16:37,389 - main - INFO - === Logging system initialized ===
+2026-09-29 21:16:37,390 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 21:16:37,390 - main - INFO - Log level: DEBUG
+2026-09-29 21:16:37,390 - main - INFO - Log date: 20260929
+2026-09-29 21:16:37,683 - main - INFO - Included router: routers.aihub.router
+2026-09-29 21:16:39,583 - main - INFO - Included router: routers.auth.router
+2026-09-29 21:16:39,679 - main - INFO - Included router: routers.health.router
+2026-09-29 21:16:39,716 - main - INFO - Included router: routers.settings.router
+2026-09-29 21:16:39,879 - main - INFO - Included router: routers.storage.router
+2026-09-29 21:16:39,952 - main - INFO - Included router: routers.user.router
+2026-09-29 21:16:39,953 - main - INFO - === Application startup initiated ===
+2026-09-29 21:16:39,954 - main - INFO - === Application startup completed successfully ===
+2026-09-29 21:18:48,631 - main - INFO - === Logging system initialized ===
+2026-09-29 21:18:48,632 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 21:18:48,632 - main - INFO - Log level: DEBUG
+2026-09-29 21:18:48,632 - main - INFO - Log date: 20260929
+2026-09-29 21:18:48,737 - main - INFO - Included router: routers.aihub.router
+2026-09-29 21:18:49,548 - main - INFO - Included router: routers.auth.router
+2026-09-29 21:18:49,551 - main - INFO - Included router: routers.health.router
+2026-09-29 21:18:49,563 - main - INFO - Included router: routers.settings.router
+2026-09-29 21:18:49,586 - main - INFO - Included router: routers.storage.router
+2026-09-29 21:18:49,601 - main - INFO - Included router: routers.user.router
+2026-09-29 21:18:49,602 - main - INFO - === Application startup initiated ===
+2026-09-29 21:18:49,603 - main - INFO - === Application startup completed successfully ===
+2026-09-29 21:19:20,414 - main - INFO - === Logging system initialized ===
+2026-09-29 21:19:20,415 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 21:19:20,415 - main - INFO - Log level: DEBUG
+2026-09-29 21:19:20,415 - main - INFO - Log date: 20260929
+2026-09-29 21:19:20,538 - main - INFO - Included router: routers.aihub.router
+2026-09-29 21:19:21,640 - main - INFO - Included router: routers.auth.router
+2026-09-29 21:19:21,645 - main - INFO - Included router: routers.health.router
+2026-09-29 21:19:21,657 - main - INFO - Included router: routers.settings.router
+2026-09-29 21:19:21,678 - main - INFO - Included router: routers.storage.router
+2026-09-29 21:19:21,698 - main - INFO - Included router: routers.user.router
+2026-09-29 21:19:21,701 - main - INFO - === Application startup initiated ===
+2026-09-29 21:19:21,701 - main - INFO - === Application startup completed successfully ===
+2026-09-29 21:22:58,986 - main - INFO - === Logging system initialized ===
+2026-09-29 21:22:58,987 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 21:22:58,987 - main - INFO - Log level: DEBUG
+2026-09-29 21:22:58,987 - main - INFO - Log date: 20260929
+2026-09-29 21:22:59,123 - main - INFO - Included router: routers.aihub.router
+2026-09-29 21:22:59,889 - main - INFO - Included router: routers.auth.router
+2026-09-29 21:22:59,892 - main - INFO - Included router: routers.health.router
+2026-09-29 21:22:59,902 - main - INFO - Included router: routers.settings.router
+2026-09-29 21:22:59,926 - main - INFO - Included router: routers.storage.router
+2026-09-29 21:22:59,942 - main - INFO - Included router: routers.user.router
+2026-09-29 21:22:59,944 - main - INFO - === Application startup initiated ===
+2026-09-29 21:22:59,944 - main - INFO - === Application startup completed successfully ===
+2026-09-29 21:24:18,428 - main - INFO - === Logging system initialized ===
+2026-09-29 21:24:18,429 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 21:24:18,429 - main - INFO - Log level: DEBUG
+2026-09-29 21:24:18,429 - main - INFO - Log date: 20260929
+2026-09-29 21:24:18,535 - main - INFO - Included router: routers.aihub.router
+2026-09-29 21:24:19,331 - main - INFO - Included router: routers.auth.router
+2026-09-29 21:24:19,334 - main - INFO - Included router: routers.health.router
+2026-09-29 21:24:19,345 - main - INFO - Included router: routers.settings.router
+2026-09-29 21:24:19,366 - main - INFO - Included router: routers.storage.router
+2026-09-29 21:24:19,382 - main - INFO - Included router: routers.user.router
+2026-09-29 21:24:19,384 - main - INFO - === Application startup initiated ===
+2026-09-29 21:24:19,384 - main - INFO - === Application startup completed successfully ===
+2026-09-29 21:57:25,537 - main - INFO - === Logging system initialized ===
+2026-09-29 21:57:25,537 - main - INFO - Log file: logs/app_20260929.log
+2026-09-29 21:57:25,537 - main - INFO - Log level: DEBUG
+2026-09-29 21:57:25,537 - main - INFO - Log date: 20260929
+2026-09-29 21:57:25,775 - main - INFO - Included router: routers.aihub.router
+2026-09-29 21:57:26,618 - main - INFO - Included router: routers.auth.router
+2026-09-29 21:57:26,646 - main - INFO - Included router: routers.health.router
+2026-09-29 21:57:26,741 - main - INFO - Included router: routers.settings.router
+2026-09-29 21:57:26,827 - main - INFO - Included router: routers.storage.router
+2026-09-29 21:57:26,911 - main - INFO - Included router: routers.user.router
+2026-09-29 21:57:26,912 - main - INFO - === Application startup initiated ===
+2026-09-29 21:57:26,912 - main - INFO - === Application startup completed successfully ===
